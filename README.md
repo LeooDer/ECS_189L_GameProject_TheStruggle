@@ -28,10 +28,6 @@ Submissions will be taken from the [team registration spreadsheet](https://docs.
 
 Your repository should include the following .gitignore file in the rood directory of the project: https://gitignore.io/api/osx,unity,linux,windows
 
-Your game must be made for one of the following versions of Unity:
-* 2018.3.11f1
-* 2019.1.3f1
-* 2019.1.4f1
 
 # Team Member Roles
 
