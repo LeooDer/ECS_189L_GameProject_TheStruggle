@@ -21,7 +21,7 @@ public class CountdownTimer : MonoBehaviour
         timeLeft -= 1 * Time.deltaTime;
         if (timeLeft < 0)
         {
-            GameOver(); // Need to make a GameOver() function
+            //GameOver(); // Need to make a GameOver() function
         }
     }
 }
