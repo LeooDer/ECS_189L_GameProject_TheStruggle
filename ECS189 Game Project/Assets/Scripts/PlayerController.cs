@@ -43,11 +43,11 @@ public class PlayerController : MonoBehaviour
 
     private void GetInput()
     {
-        if (Input.GetAxis("Horizontal") > 0.01)
+        if (Input.GetAxis("Horizontal") >= 0f)
         {
             this.Right.Execute(this.gameObject);
         }
-        if (Input.GetAxis("Horizontal") < -0.01)
+        if (Input.GetAxis("Horizontal") < 0f)
         {
             this.Left.Execute(this.gameObject);
         }
