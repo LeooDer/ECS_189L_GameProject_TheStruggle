@@ -2,8 +2,8 @@
 
 public class CameraObjectFollow : MonoBehaviour
 {
-    public GameObject Target;
-    public float Speed = 0.75f;
+    [SerializeField] private GameObject Target;
+    [SerializeField] private float Speed = 0.75f;
 
     private Vector3 TargetPosition;
 
@@ -17,7 +17,7 @@ public class CameraObjectFollow : MonoBehaviour
         if (this.Target)
         {
             var from = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z);
-            var to = new Vector3(this.Target.transform.position.x, this.transform.position.y, this.transform.position.z);
+            var to = new Vector3(this.Target.transform.position.x, this.Target.transform.position.y, this.transform.position.z);
             transform.position = Vector3.Lerp(from, to, this.Speed);
         }
     }

@@ -1,14 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿
 using UnityEngine;
-
-using Player.Command;
 
 namespace Player.Command
 {
     public class MovePlayerJumpMovement : ScriptableObject, IPlayerCommand
     {
-        private float VerticalSpeed = 1.0f;
+        private float VerticalSpeed = 11.0f;
 
         public void Execute(GameObject gameObject)
         {
