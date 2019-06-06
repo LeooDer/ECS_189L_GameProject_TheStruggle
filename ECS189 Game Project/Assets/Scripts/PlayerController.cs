@@ -19,6 +19,11 @@ public class PlayerController : MonoBehaviour
     private enum State { Grounded, Jumping };
     private State currentState;
     
+
+    // To keep track of direction the player can 
+    private enum Direction { Left, Right };
+    private Direction currentDirection;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +32,7 @@ public class PlayerController : MonoBehaviour
         this.Jump = ScriptableObject.CreateInstance<MovePlayerJumpMovement>();
         this.Knockback = ScriptableObject.CreateInstance<MovePlayerKnockbackMovement>();
         this.currentState = State.Grounded;
+        this.currentDirection = Direction.Right;
     }
 
     // Update is called once per frame
@@ -43,23 +49,36 @@ public class PlayerController : MonoBehaviour
                 GetInput();
                 break;
         }
+        
     }
 
     private void GetInput()
     {
-        if (Input.GetAxis("Horizontal") >= 0f)
+        if (Input.GetAxis("Horizontal") > 0f) 
         {
+            this.currentDirection = Direction.Right;
             this.Right.Execute(this.gameObject);
+
         }
         if (Input.GetAxis("Horizontal") < 0f)
         {
+            this.currentDirection = Direction.Left;
             this.Left.Execute(this.gameObject);
         }
         if (Input.GetButton("Fire1"))
         {
             var projectile = (GameObject)Instantiate(ProjectilePrefab, gameObject.transform.localPosition, gameObject.transform.rotation);
             var projectileRigidBody = projectile.GetComponent<Rigidbody>();
-            projectileRigidBody.velocity = projectile.transform.right * SpeedFactor;
+            switch (this.currentDirection)
+            {
+                case Direction.Left:
+                    projectileRigidBody.velocity = -1 * projectile.transform.right * SpeedFactor;
+                    break;
+                case Direction.Right:
+                    projectileRigidBody.velocity = projectile.transform.right * SpeedFactor;
+                    break;
+            }
+            
             
         }
     }
