@@ -4,7 +4,7 @@ namespace Player.Command
 {
     public class MovePlayerKnockbackMovement : ScriptableObject, IPlayerCommand
     {
-        private float KnockbackStrength = 20.0f;
+        private float KnockbackStrength = 800.0f;
         private Vector2 KnockbackRight = new Vector2(Vector2.right.x, Vector2.up.y);
         private Vector2 KnockbackLeft = new Vector2(Vector2.left.x, Vector2.up.y); 
 
@@ -15,7 +15,7 @@ namespace Player.Command
             {
                 var KnockbackDirection = KnockbackStrength * KnockbackLeft;
                 Debug.Log(KnockbackDirection);
-                rigidBody.velocity = KnockbackDirection;
+                rigidBody.AddForce(KnockbackDirection);
             }
         }
 

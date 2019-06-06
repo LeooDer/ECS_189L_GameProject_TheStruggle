@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
     private float SpeedFactor = 50.0f;
 
     // To keep track of the different states the player can be in
-    private enum State { Grounded, Jumping };
+    private enum State { Grounded, Jumping, Hurt };
     private State currentState;
     
     // Start is called before the first frame update
@@ -41,6 +41,9 @@ public class PlayerController : MonoBehaviour
 
             case State.Jumping:
                 GetInput();
+                break;
+            case State.Hurt:
+                
                 break;
         }
     }
@@ -86,6 +89,7 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.tag == "Enemy")
         {
             this.Knockback.Execute(this.gameObject);
+            this.currentState = State.Hurt;
         }
     }
 }
