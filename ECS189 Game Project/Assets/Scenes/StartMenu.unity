@@ -263,6 +263,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1500923154, guid: 33c8c403ffe11a14aacb75f547ebb4bf, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b093d1d974bd41c4bad30bb5bb299d7c,
+        type: 3}
     - target: {fileID: 5111426486516972403, guid: 33c8c403ffe11a14aacb75f547ebb4bf,
         type: 3}
       propertyPath: m_AnchoredPosition.x
