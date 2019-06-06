@@ -70,7 +70,7 @@ public class PlayerController : MonoBehaviour
             this.currentDirection = Direction.Left;
             this.Left.Execute(this.gameObject);
         }
-        if (Input.GetButton("Fire1"))
+        if (Input.GetButtonDown("Fire1"))
         {
             var projectile = (GameObject)Instantiate(ProjectilePrefab, gameObject.transform.localPosition, gameObject.transform.rotation);
             var projectileRigidBody = projectile.GetComponent<Rigidbody2D>();

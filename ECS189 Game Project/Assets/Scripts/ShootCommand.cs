@@ -6,7 +6,7 @@ using Player.Command;
 
 namespace Player.Command
 {
-    public class ShootCommand : MonoBehaviour //ScriptableObject, IPlayerCommand
+    public class ShootCommand : MonoBehaviour
     {
         [SerializeField] private Rigidbody2D RigidBody;
 
