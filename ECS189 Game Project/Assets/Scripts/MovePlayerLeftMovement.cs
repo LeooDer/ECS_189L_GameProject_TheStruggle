@@ -26,7 +26,6 @@ namespace Player.Command
                     rigidBody.velocity = new Vector2(x * this.Speed, rigidBody.velocity.y);
 
                 gameObject.GetComponent<SpriteRenderer>().flipX = true;
-                gameObject.GetComponent<Animator>().Play("Player-Walking");
             }
         }
     }

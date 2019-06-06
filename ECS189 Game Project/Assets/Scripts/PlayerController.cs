@@ -45,7 +45,6 @@ public class PlayerController : MonoBehaviour
         switch (this.currentState)
         {
             case State.Grounded:
-                //playerAnimator.Play("Player-Idle");
                 GetInput();
                 GetJumpInput();
                 break;
@@ -57,7 +56,9 @@ public class PlayerController : MonoBehaviour
                 
                 break;
         }
-        
+
+        // Update animations
+        SetAnimatorProperties();
     }
 
     private void GetInput()
@@ -73,6 +74,7 @@ public class PlayerController : MonoBehaviour
             this.currentDirection = Direction.Left;
             this.Left.Execute(this.gameObject);
         }
+
         if (Input.GetButtonDown("Fire1"))
         {
             var projectile = (GameObject)Instantiate(ProjectilePrefab, gameObject.transform.localPosition, gameObject.transform.rotation);
@@ -87,6 +89,13 @@ public class PlayerController : MonoBehaviour
                     break;
             }
         }
+    }
+
+    private void SetAnimatorProperties()
+    {
+        var velocity = this.gameObject.GetComponent<Rigidbody2D>().velocity;
+        playerAnimator.SetFloat("VelocityX", Mathf.Abs(velocity.x));
+        playerAnimator.SetFloat("VelocityY", velocity.y);
     }
 
     private void GetJumpInput()
