@@ -113,6 +113,9 @@ public class PlayerController : MonoBehaviour
         // If we touch the ground, we're grounded
         if (collision.gameObject.tag == "Ground")
         {
+            if (this.currentState == State.Hurt)
+                this.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+
             this.currentState = State.Grounded;
         }
 
