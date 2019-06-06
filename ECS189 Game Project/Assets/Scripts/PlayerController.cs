@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField]
     private GameObject ProjectilePrefab;
+    private Animator playerAnimator;
 
     private IPlayerCommand Right;
     private IPlayerCommand Left;
@@ -33,6 +34,7 @@ public class PlayerController : MonoBehaviour
         this.Jump = ScriptableObject.CreateInstance<MovePlayerJumpMovement>();
         this.KnockbackRight = ScriptableObject.CreateInstance<MovePlayerKnockbackRight>();
         this.KnockbackLeft = ScriptableObject.CreateInstance<MovePlayerKnockbackLeft>();
+        this.playerAnimator = GetComponent<Animator>();
         this.currentState = State.Grounded;
         this.currentDirection = Direction.Right;
     }
@@ -43,6 +45,7 @@ public class PlayerController : MonoBehaviour
         switch (this.currentState)
         {
             case State.Grounded:
+                //playerAnimator.Play("Player-Idle");
                 GetInput();
                 GetJumpInput();
                 break;
