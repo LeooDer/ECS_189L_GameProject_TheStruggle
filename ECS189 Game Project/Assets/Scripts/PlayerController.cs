@@ -12,7 +12,8 @@ public class PlayerController : MonoBehaviour
     private IPlayerCommand Right;
     private IPlayerCommand Left;
     private IPlayerCommand Jump;
-    private IPlayerCommand Knockback;
+    private IPlayerCommand KnockbackRight;
+    private IPlayerCommand KnockbackLeft;
     private float SpeedFactor = 50.0f;
 
     // To keep track of the different states the player can be in
@@ -30,7 +31,8 @@ public class PlayerController : MonoBehaviour
         this.Right = ScriptableObject.CreateInstance<MovePlayerRightMovement>();
         this.Left = ScriptableObject.CreateInstance<MovePlayerLeftMovement>();
         this.Jump = ScriptableObject.CreateInstance<MovePlayerJumpMovement>();
-        this.Knockback = ScriptableObject.CreateInstance<MovePlayerKnockbackMovement>();
+        this.KnockbackRight = ScriptableObject.CreateInstance<MovePlayerKnockbackRight>();
+        this.KnockbackLeft = ScriptableObject.CreateInstance<MovePlayerKnockbackLeft>();
         this.currentState = State.Grounded;
         this.currentDirection = Direction.Right;
     }
@@ -81,8 +83,6 @@ public class PlayerController : MonoBehaviour
                     projectileRigidBody.velocity = projectile.transform.right * SpeedFactor;
                     break;
             }
-            
-            
         }
     }
 
@@ -105,9 +105,14 @@ public class PlayerController : MonoBehaviour
         }
 
         // Apply knockback if we touch an enemy
-        if (collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.tag == "Enemy" && this.currentState != State.Hurt)
         {
-            this.Knockback.Execute(this.gameObject);
+            // Determine which direction to apply knockback in, depending on position of enemy
+            if (collision.gameObject.transform.position.x < this.transform.position.x)
+                this.KnockbackRight.Execute(this.gameObject);
+            else
+                this.KnockbackLeft.Execute(this.gameObject);
+
             this.currentState = State.Hurt;
         }
     }
