@@ -8,19 +8,23 @@ namespace Player.Command
 {
     public class ShootCommand : MonoBehaviour //ScriptableObject, IPlayerCommand
     {
-        
+        [SerializeField] private Rigidbody2D RigidBody;
+
         void Start()
         {
             Destroy(gameObject, 1.0f);
+            this.RigidBody = GetComponent<Rigidbody2D>();
         }
 
-        //Function will be called when this object hits an object with a collider
-        void OnCollisionEnter(Collision collision)
+
+        private void OnCollisionEnter2D(Collision2D collision)
         {
-            //Destroy this gameobject
-            Destroy(gameObject);
+            if (collision.gameObject.tag == "Enemy")
+            {
+                Destroy(gameObject);
+                Destroy(collision.gameObject);
+            }
         }
-
     }
 }
 
