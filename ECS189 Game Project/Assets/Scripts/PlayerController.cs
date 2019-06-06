@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     private IPlayerCommand Left;
     private IPlayerCommand Jump;
     private IPlayerCommand Fire1;
+    private IPlayerCommand Knockback;
 
     // To keep track of the different states the player can be in
     private enum State { Grounded, Jumping };
@@ -22,6 +23,7 @@ public class PlayerController : MonoBehaviour
         this.Left = ScriptableObject.CreateInstance<MovePlayerLeftMovement>();
         this.Jump = ScriptableObject.CreateInstance<MovePlayerJumpMovement>();
         this.Fire1 = new ShootCommand();
+        this.Knockback = ScriptableObject.CreateInstance<MovePlayerKnockbackMovement>();
         this.currentState = State.Grounded;
     }
 
@@ -73,6 +75,12 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.tag == "Ground")
         {
             this.currentState = State.Grounded;
+        }
+
+        // Apply knockback if we touch an enemy
+        if (collision.gameObject.tag == "Enemy")
+        {
+            this.Knockback.Execute(this.gameObject);
         }
     }
 }
