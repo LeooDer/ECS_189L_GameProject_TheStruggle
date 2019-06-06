@@ -14,6 +14,7 @@ namespace Player.Command
             if (rigidBody != null)
             {
                 var KnockbackDirection = KnockbackStrength * KnockbackLeft;
+                Debug.Log(KnockbackDirection);
                 rigidBody.velocity = KnockbackDirection;
             }
         }

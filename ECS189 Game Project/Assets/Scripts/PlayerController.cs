@@ -6,11 +6,14 @@ using Player.Command;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField]
+    private GameObject ProjectilePrefab;
+
     private IPlayerCommand Right;
     private IPlayerCommand Left;
     private IPlayerCommand Jump;
-    private IPlayerCommand Fire1;
     private IPlayerCommand Knockback;
+    private float SpeedFactor = 50.0f;
 
     // To keep track of the different states the player can be in
     private enum State { Grounded, Jumping };
@@ -22,7 +25,6 @@ public class PlayerController : MonoBehaviour
         this.Right = ScriptableObject.CreateInstance<MovePlayerRightMovement>();
         this.Left = ScriptableObject.CreateInstance<MovePlayerLeftMovement>();
         this.Jump = ScriptableObject.CreateInstance<MovePlayerJumpMovement>();
-        this.Fire1 = new ShootCommand();
         this.Knockback = ScriptableObject.CreateInstance<MovePlayerKnockbackMovement>();
         this.currentState = State.Grounded;
     }
@@ -55,7 +57,10 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetButton("Fire1"))
         {
-            this.Fire1.Execute(this.gameObject);
+            var projectile = (GameObject)Instantiate(ProjectilePrefab, gameObject.transform.localPosition, gameObject.transform.rotation);
+            var projectileRigidBody = projectile.GetComponent<Rigidbody>();
+            projectileRigidBody.velocity = projectile.transform.right * SpeedFactor;
+            
         }
     }
 
