@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
 using Player.Command;
 
 public class PlayerController : MonoBehaviour
