@@ -119,7 +119,6 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetButtonDown("Jump") )
         {
-            Debug.Log("Move Jump");
             this.Jump.Execute(this.gameObject);
             this.currentState = State.Jumping;
         }

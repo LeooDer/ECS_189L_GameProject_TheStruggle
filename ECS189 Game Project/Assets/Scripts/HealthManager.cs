@@ -43,9 +43,13 @@ public class HealthManager : MonoBehaviour
         return 0;
     }
 
-    public void Remove(int Key)
+    private void Remove(int Key)
     {
         Health.Remove(Key); 
     }
 
+    public double getHealth(int key)
+    {
+        return Health[key];
+    }
 }

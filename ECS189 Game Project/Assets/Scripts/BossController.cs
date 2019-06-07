@@ -13,12 +13,14 @@ public class BossController : MonoBehaviour
     [SerializeField]
     private double Health;
     private HealthManager healthManager;
-    private float Attack1Time = 2;
-    private float Attack2Time = 4;
+    private float Attack1Time = 3;
+    private float Attack2Time = 1;
+    private float Attack3Time = 1;
+    private float Attack1TimeCounter = 0;
+    private float Attack2TimeCounter = 0;
+    private float Attack3TimeCounter = 0;
     private float AttackCycle = 4;
     private float AttackTime = 0;
-    private bool Attack1Executed = false;
-    private bool Attack2Executed = false;
     private int key;
 
     void Awake()
@@ -30,25 +32,25 @@ public class BossController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (AttackTime > 2 && !Attack1Executed)
+        if (Attack1TimeCounter > Attack1Time)
         {
             Attack1();
-            Attack1Executed = true;
+            Attack1TimeCounter = 0;
         }
-        if (AttackTime > 4)
+        if (Attack2TimeCounter > Attack2Time)
         {
             Attack2();
-            Attack2Executed = true;
+            Attack2TimeCounter = 0;
         }
-        if (AttackTime > AttackCycle)
+        if (Attack3TimeCounter > Attack3Time)
         {
-            Attack1Executed = false;
-            Attack2Executed = false;
-            AttackTime = 0;
-            return;
+            Attack3();
+            Attack3TimeCounter = 0;
         }
-        AttackTime += Time.deltaTime;
-    }
+        Attack1TimeCounter += Time.deltaTime;
+        Attack2TimeCounter += Time.deltaTime;
+        Attack3TimeCounter += Time.deltaTime;
+}
 
     void Attack1()
     {
@@ -62,9 +64,16 @@ public class BossController : MonoBehaviour
 
     void Attack2()
     {
-        var projectile = (GameObject)Instantiate(ProjectilePrefab2, gameObject.transform.localPosition + new Vector3(-2, -2, 0), gameObject.transform.rotation);
+        var projectile = (GameObject)Instantiate(ProjectilePrefab2, gameObject.transform.localPosition + new Vector3(0, 0, 0), gameObject.transform.rotation);
         var rigidbody = projectile.GetComponent<Rigidbody2D>();
         rigidbody.velocity = new Vector2(-1 * ProjectileSpeed, 0);
+    }
+
+    void Attack3()
+    {
+        var projectile = (GameObject)Instantiate(ProjectilePrefab2, gameObject.transform.localPosition + new Vector3(Random.Range(-10,0), 7, 0), gameObject.transform.rotation);
+        var rigidbody = projectile.GetComponent<Rigidbody2D>();
+        rigidbody.velocity = new Vector2(0, -2);
     }
 
     private void OnTriggerEnter2D(Collider2D collider)

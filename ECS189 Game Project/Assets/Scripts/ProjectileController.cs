@@ -9,7 +9,7 @@ public class ProjectileController : MonoBehaviour
 
     void Awake()
     {
-        lifeTime = 3.0;
+        lifeTime = 0.5;
         currentLife = 0.0;
     }
 
