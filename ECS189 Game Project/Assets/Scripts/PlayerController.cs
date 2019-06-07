@@ -119,7 +119,6 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetButtonDown("Jump") )
         {
-            Debug.Log("Move Jump");
             this.Jump.Execute(this.gameObject);
             this.currentState = State.Jumping;
         }
@@ -128,6 +127,24 @@ public class PlayerController : MonoBehaviour
     private void PlayWalkSound()
     {
         AudioManager.instance.Play("FootstepSound");
+    }
+
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.gameObject.tag == "EnemyProjectile" || collider.gameObject.tag == "Ground")
+        {
+            double currentHealth = this.healthManager.Damaged(key,10);
+            if(currentHealth <= 0)
+            {
+                healthBar.UpdateHealth(currentHealth);
+                Destroy(gameObject);
+                GameManager.Instance.ChangeScene("Lose");
+            }
+            else
+            {
+                healthBar.UpdateHealth(currentHealth);
+            }
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -152,7 +169,6 @@ public class PlayerController : MonoBehaviour
             double currentHealth = this.healthManager.Damaged(key,10);
             if(currentHealth <= 0)
             {
-                Debug.Log("Dead");
                 healthBar.UpdateHealth(currentHealth);
                 Destroy(gameObject);
                 GameManager.Instance.ChangeScene("Lose");
@@ -160,7 +176,6 @@ public class PlayerController : MonoBehaviour
             else
             {
                 healthBar.UpdateHealth(currentHealth);
-                Debug.Log("Damaged");
             }
             this.currentState = State.Hurt;
         }

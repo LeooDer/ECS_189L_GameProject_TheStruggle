@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BossProjectileController : MonoBehaviour
+public class ProjectileController : MonoBehaviour
 {
     private double lifeTime;
     private double currentLife;
 
     void Awake()
     {
-        lifeTime = 10.0;
+        lifeTime = 0.5;
         currentLife = 0.0;
     }
 
@@ -23,7 +23,7 @@ public class BossProjectileController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.gameObject.tag == "Player" || collider.gameObject.tag == "Ground")
+        if (collider.gameObject.tag == "Enemy" || collider.gameObject.tag == "Ground")
         {
             Destroy(gameObject);
         }
