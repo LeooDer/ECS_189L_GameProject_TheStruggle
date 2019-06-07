@@ -13,6 +13,7 @@ public class BossController : MonoBehaviour
     [SerializeField]
     private double Health;
     private HealthManager healthManager;
+    private Animator BossAnimator;
     private float Attack1Time = 3;
     private float Attack2Time = 1;
     private float Attack3Time = 1;
@@ -27,6 +28,8 @@ public class BossController : MonoBehaviour
     {
         this.healthManager = GameObject.FindGameObjectWithTag("Manager").GetComponent<HealthManager>();
         key = this.healthManager.Add(Health);
+        this.BossAnimator = GetComponent<Animator>();
+        this.BossAnimator.Play("Boss-Idle");
     }
 
     // Update is called once per frame
