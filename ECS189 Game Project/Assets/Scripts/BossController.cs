@@ -9,13 +9,15 @@ public class BossController : MonoBehaviour
     [SerializeField]
     private GameObject ProjectilePrefab2;
     [SerializeField]
+    private GameObject ProjectilePrefab3;
+    [SerializeField]
     private float ProjectileSpeed;
     [SerializeField]
     private double Health;
     private HealthManager healthManager;
     private Animator BossAnimator;
     private float Attack1Time = 3;
-    private float Attack2Time = 1;
+    private float Attack2Time = 5;
     private float Attack3Time = 1;
     private float Attack1TimeCounter = 0;
     private float Attack2TimeCounter = 0;
@@ -57,6 +59,7 @@ public class BossController : MonoBehaviour
 
     void Attack1()
     {
+        this.BossAnimator.Play("Boss-Attack2");
         for (double i = -10; i < 10; i += 2)
         {
             var projectile = (GameObject)Instantiate(ProjectilePrefab1, gameObject.transform.localPosition + new Vector3(0, 1, 0), gameObject.transform.rotation);
@@ -67,14 +70,16 @@ public class BossController : MonoBehaviour
 
     void Attack2()
     {
-        var projectile = (GameObject)Instantiate(ProjectilePrefab2, gameObject.transform.localPosition + new Vector3(0, 0, 0), gameObject.transform.rotation);
+        this.BossAnimator.Play("Boss-Attack");
+        var projectile = (GameObject)Instantiate(ProjectilePrefab2, gameObject.transform.localPosition + new Vector3(0, 1, 0), gameObject.transform.rotation);
         var rigidbody = projectile.GetComponent<Rigidbody2D>();
         rigidbody.velocity = new Vector2(-1 * ProjectileSpeed, 0);
     }
 
     void Attack3()
     {
-        var projectile = (GameObject)Instantiate(ProjectilePrefab2, gameObject.transform.localPosition + new Vector3(Random.Range(-10,0), 7, 0), gameObject.transform.rotation);
+
+        var projectile = (GameObject)Instantiate(ProjectilePrefab3, gameObject.transform.localPosition + new Vector3(Random.Range(-10,0), 7, 0), ProjectilePrefab3.transform.rotation);
         var rigidbody = projectile.GetComponent<Rigidbody2D>();
         rigidbody.velocity = new Vector2(0, -2);
     }

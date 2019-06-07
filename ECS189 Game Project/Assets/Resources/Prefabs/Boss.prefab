@@ -143,5 +143,7 @@ MonoBehaviour:
     type: 3}
   ProjectilePrefab2: {fileID: 6540184504772587978, guid: ce4de48d4e23c444b90c7cc57b0c055a,
     type: 3}
+  ProjectilePrefab3: {fileID: 2795184505688031287, guid: bf9d91fc883ee1544aaf5af3a190e304,
+    type: 3}
   ProjectileSpeed: 10
   Health: 100
