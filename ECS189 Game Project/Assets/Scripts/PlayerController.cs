@@ -8,6 +8,9 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField]
     private GameObject ProjectilePrefab;
+    [SerializeField]
+    private double Health = 100;
+
     private Animator playerAnimator;
 
     private IPlayerCommand Right;
@@ -16,6 +19,8 @@ public class PlayerController : MonoBehaviour
     private IPlayerCommand KnockbackRight;
     private IPlayerCommand KnockbackLeft;
     private float SpeedFactor = 50.0f;
+    private HealthManager healthManager;
+    private int key;
 
     // To keep track of the different states the player can be in
     private enum State { Grounded, Jumping, Hurt };
@@ -29,6 +34,8 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        this.healthManager = GameObject.FindGameObjectWithTag("Manager").GetComponent<HealthManager>();
+        key = this.healthManager.Add(Health);
         this.Right = ScriptableObject.CreateInstance<MovePlayerRightMovement>();
         this.Left = ScriptableObject.CreateInstance<MovePlayerLeftMovement>();
         this.Jump = ScriptableObject.CreateInstance<MovePlayerJumpMovement>();
@@ -132,7 +139,15 @@ public class PlayerController : MonoBehaviour
                 this.KnockbackRight.Execute(this.gameObject);
             else
                 this.KnockbackLeft.Execute(this.gameObject);
-
+            if(!(this.healthManager.Damaged(key,10)))
+            {
+                Debug.Log("Dead");
+                Destroy(gameObject);
+            }
+            else
+            {
+                Debug.Log("Damaged");
+            }
             this.currentState = State.Hurt;
         }
     }

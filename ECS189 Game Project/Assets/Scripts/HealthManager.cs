@@ -5,14 +5,18 @@ using UnityEngine;
 public class HealthManager : MonoBehaviour
 {
     private Dictionary<int, double> Health = new Dictionary<int, double>();
+    private int key = 0;
 
     // Start is called before the first frame update
-    public void Add(int key,double health)
+    public int Add(double health)
     {
         if(Health.ContainsKey(key) == false)
         {
-            Health.Add(key, health);
+            key++;
+            Health.Add(key,health);
+            return key;
         }
+        return -1;
     }
     
     public bool Damaged(int key,double damage)
@@ -20,7 +24,6 @@ public class HealthManager : MonoBehaviour
         if (Health.ContainsKey(key))
         {
             double currentHealth = Health[key];
-            Debug.Log(currentHealth);
             if ((currentHealth - damage) > 0)
             {
                 Health[key] = currentHealth - damage;
