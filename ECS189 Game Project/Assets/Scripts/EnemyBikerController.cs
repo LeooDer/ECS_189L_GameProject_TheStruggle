@@ -24,6 +24,8 @@ public class EnemyBikerController : MonoBehaviour
         if (collision.gameObject.tag == "Ground")
         {
             this.Speed = -this.Speed;
+            var flipX = this.GetComponent<SpriteRenderer>().flipX;
+            this.GetComponent<SpriteRenderer>().flipX = !flipX;
         }
     }
 }

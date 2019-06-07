@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
     private IPlayerCommand Jump;
     private IPlayerCommand KnockbackRight;
     private IPlayerCommand KnockbackLeft;
-    private float SpeedFactor = 10.0f; //50.0f;
+    private float SpeedFactor = 20.0f; //50.0f;
     private HealthManager healthManager;
     private int key;
     private HUDManager healthBar;

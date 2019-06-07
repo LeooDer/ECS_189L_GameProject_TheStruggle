@@ -11,6 +11,7 @@ public class ProjectileController : MonoBehaviour
     {
         lifeTime = 0.5;
         currentLife = 0.0;
+        GetComponent<Animator>().Play("Player-Projectile");
     }
 
     void Update()
