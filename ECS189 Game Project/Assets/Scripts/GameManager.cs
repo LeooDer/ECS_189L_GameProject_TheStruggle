@@ -11,7 +11,7 @@ public class GameManager
 
     static GameManager()
     {
-        SceneManager.LoadScene("StartMenu");
+        GameManager.Instance.ChangeScene("StartMenu");
 
     }
     private GameManager()
@@ -25,7 +25,7 @@ public class GameManager
             return instance;
         }
     }
-    public void CurrentState(string scene)
+    public void ChangeScene(string scene)
     {
         Scene currentScene = SceneManager.GetActiveScene();
         Scene newScene = SceneManager.GetSceneByName(scene);
@@ -33,8 +33,15 @@ public class GameManager
         {
             SceneManager.LoadScene(scene);
             SceneManager.UnloadScene(currentScene);
-            SceneManager.SetActiveScene(newScene);
+   //         SceneManager.SetActiveScene(newScene);
         }
     }
 
+    public void Pause()
+    {
+        if(Time.timeScale == 0)
+            Time.timeScale = 1;
+        else
+            Time.timeScale = 0;
+    }
 }
