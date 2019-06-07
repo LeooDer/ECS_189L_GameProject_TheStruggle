@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
     private double Health = 100;
 
     private Animator playerAnimator;
+    private GameObject projectile;
+    private Rigidbody2D projectileRigidBody;
 
     private IPlayerCommand Right;
     private IPlayerCommand Left;
@@ -86,14 +88,17 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetButtonDown("Fire1"))
         {
-            var projectile = (GameObject)Instantiate(ProjectilePrefab, gameObject.transform.localPosition, gameObject.transform.rotation);
-            var projectileRigidBody = projectile.GetComponent<Rigidbody2D>();
+
             switch (this.currentDirection)
             {
                 case Direction.Left:
+                    projectile = (GameObject)Instantiate(ProjectilePrefab, gameObject.transform.localPosition + new Vector3(-1,0,0) , gameObject.transform.rotation);
+                    projectileRigidBody = projectile.GetComponent<Rigidbody2D>();
                     projectileRigidBody.velocity = -1 * projectile.transform.right * SpeedFactor;
                     break;
                 case Direction.Right:
+                    projectile = (GameObject)Instantiate(ProjectilePrefab, gameObject.transform.localPosition + new Vector3(1, 0, 0), gameObject.transform.rotation);
+                    projectileRigidBody = projectile.GetComponent<Rigidbody2D>();
                     projectileRigidBody.velocity = projectile.transform.right * SpeedFactor;
                     break;
             }
