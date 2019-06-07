@@ -5,38 +5,47 @@ using UnityEngine;
 public class HealthManager : MonoBehaviour
 {
     private Dictionary<int, double> Health = new Dictionary<int, double>();
-    private int key = 0;
+    private int itrKey = 2;
 
     // Start is called before the first frame update
     public int Add(double health)
     {
-        if(Health.ContainsKey(key) == false)
+        if(!Health.ContainsKey(itrKey))
         {
-            key++;
-            Health.Add(key,health);
-            return key;
-        }
-        return -1;
-    }
-    
-    public double Damaged(int key,double damage)
-    {
-        double currentHealth = Health[key];
-        if ((currentHealth - damage) > 0)
-        {
-            Health[key] = currentHealth - damage;
-            return Health[key];
+            Health.Add(itrKey,health);
+            int returnKey = itrKey;
+            itrKey++;
+            return returnKey;
         }
         else
         {
-            Remove(key);
-            return 0;
+            return -1;
         }
+        
+    }
+    
+    public double Damaged(int Key,double damage)
+    {
+        if(Health.ContainsKey(Key))
+        {
+            double currentHealth = Health[Key];
+            if ((currentHealth - damage) > 0)
+            {
+                Health[Key] = currentHealth - damage;
+                return Health[Key];
+            }
+            else
+            {
+                Remove(Key);
+                return 0;
+            }
+        }
+        return 0;
     }
 
-    public void Remove(int key)
+    public void Remove(int Key)
     {
-        Health.Remove(key); 
+        Health.Remove(Key); 
     }
 
 }
