@@ -4,10 +4,12 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Projectile
   - Ground
   - Enemy
   - Manager
+  - FriendlyProjectile
+  - EnemyProjectile
+  - Projectile
   layers:
   - Default
   - TransparentFX

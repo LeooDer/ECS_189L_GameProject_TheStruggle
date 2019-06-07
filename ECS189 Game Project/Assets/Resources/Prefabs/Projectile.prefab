@@ -10,12 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 8041518600498864301}
   - component: {fileID: 6805918182655159899}
-  - component: {fileID: 4144171939116509950}
-  - component: {fileID: 5910673879938385821}
-  - component: {fileID: 4200891837313637242}
+  - component: {fileID: 2990390249988505678}
+  - component: {fileID: 943127936026618090}
+  - component: {fileID: 4463077121284335688}
   m_Layer: 0
   m_Name: Projectile
-  m_TagString: Projectile
+  m_TagString: FriendlyProjectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -82,23 +82,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &4144171939116509950
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4856308105452395959}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.1
---- !u!114 &5910673879938385821
+--- !u!114 &2990390249988505678
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -107,11 +91,90 @@ MonoBehaviour:
   m_GameObject: {fileID: 4856308105452395959}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 985381e865ecde34284fcbb980689e25, type: 3}
+  m_Script: {fileID: 11500000, guid: 0b6218eaf0ed8f4478acf0e3992d8ca5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RigidBody: {fileID: 4200891837313637242}
---- !u!50 &4200891837313637242
+--- !u!60 &943127936026618090
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4856308105452395959}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0.5}
+    oldSize: {x: 2.88, y: 2.3400002}
+    newSize: {x: 0.2, y: 0.2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 1.0702565, y: -0.95512825}
+      - {x: 1.1215385, y: -0.94487184}
+      - {x: 1.2035898, y: -0.924359}
+      - {x: 1.4600002, y: -0.86282057}
+      - {x: 1.5933335, y: -0.83205134}
+      - {x: 1.6753848, y: -0.81153846}
+      - {x: 1.931795, y: -0.75}
+      - {x: 2.0138464, y: -0.7294872}
+      - {x: 2.208718, y: -0.67820513}
+      - {x: 2.2702565, y: -0.6679487}
+      - {x: 2.4241028, y: -0.6576923}
+      - {x: 2.506154, y: -0.6474359}
+      - {x: 2.5266669, y: -0.6269231}
+      - {x: 2.5676925, y: -0.57564104}
+      - {x: 2.6394873, y: -0.57564104}
+      - {x: 2.6907694, y: -0.5346154}
+      - {x: 2.7420514, y: -0.5346154}
+      - {x: 2.8753848, y: -0.46282053}
+      - {x: 2.8753848, y: -0.4217949}
+      - {x: 2.8446155, y: -0.3294872}
+      - {x: 2.7933335, y: -0.18589744}
+      - {x: 2.731795, y: -0.021794872}
+      - {x: 2.6394873, y: 0.2448718}
+      - {x: 2.4241028, y: 0.86025643}
+      - {x: 2.3420515, y: 1.0858974}
+      - {x: 2.331795, y: 1.1576923}
+      - {x: 2.3112822, y: 1.1782051}
+      - {x: 2.2394874, y: 1.1679487}
+      - {x: 2.1266668, y: 1.1371795}
+      - {x: 1.7164104, y: 1.024359}
+      - {x: 1.6035899, y: 0.99358976}
+      - {x: 1.2548718, y: 0.9012821}
+      - {x: 0.69076926, y: 0.7474359}
+      - {x: 0.6189744, y: 0.7269231}
+      - {x: 0.5061538, y: 0.6961539}
+      - {x: 0.41384616, y: 0.65512824}
+      - {x: 0.17794871, y: 0.5115385}
+      - {x: 0.08564101, y: 0.47051284}
+      - {x: 0.03435896, y: 0.4294872}
+      - {x: 0.03435896, y: 0.38846156}
+      - {x: 0.0753846, y: 0.35769233}
+      - {x: 0.0753846, y: 0.19358975}
+      - {x: 0.08564101, y: -0.011538462}
+      - {x: 0.09589742, y: -0.021794872}
+      - {x: 0.09589742, y: -0.21666667}
+      - {x: 0.10615383, y: -0.22692308}
+      - {x: 0.10615383, y: -0.4217949}
+      - {x: 0.11641025, y: -0.4320513}
+      - {x: 0.12666665, y: -0.8217949}
+      - {x: 0.13692306, y: -1.0269231}
+      - {x: 0.14717947, y: -1.1500001}
+      - {x: 0.1676923, y: -1.1705129}
+      - {x: 0.26, y: -1.1500001}
+      - {x: 0.608718, y: -1.0679487}
+      - {x: 0.8138462, y: -1.0166667}
+--- !u!50 &4463077121284335688
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0

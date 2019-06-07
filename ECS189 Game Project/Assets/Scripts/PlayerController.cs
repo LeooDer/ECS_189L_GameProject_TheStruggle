@@ -130,6 +130,24 @@ public class PlayerController : MonoBehaviour
         AudioManager.instance.Play("FootstepSound");
     }
 
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.gameObject.tag == "EnemyProjectile" || collider.gameObject.tag == "Ground")
+        {
+            double currentHealth = this.healthManager.Damaged(key,10);
+            if(currentHealth <= 0)
+            {
+                healthBar.UpdateHealth(currentHealth);
+                Destroy(gameObject);
+                GameManager.Instance.ChangeScene("Lose");
+            }
+            else
+            {
+                healthBar.UpdateHealth(currentHealth);
+            }
+        }
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         // If we touch the ground, we're grounded
@@ -152,7 +170,6 @@ public class PlayerController : MonoBehaviour
             double currentHealth = this.healthManager.Damaged(key,10);
             if(currentHealth <= 0)
             {
-                Debug.Log("Dead");
                 healthBar.UpdateHealth(currentHealth);
                 Destroy(gameObject);
                 GameManager.Instance.ChangeScene("Lose");
@@ -160,7 +177,6 @@ public class PlayerController : MonoBehaviour
             else
             {
                 healthBar.UpdateHealth(currentHealth);
-                Debug.Log("Damaged");
             }
             this.currentState = State.Hurt;
         }
