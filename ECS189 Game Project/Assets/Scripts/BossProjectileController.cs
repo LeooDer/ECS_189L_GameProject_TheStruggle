@@ -9,7 +9,7 @@ public class BossProjectileController : MonoBehaviour
 
     void Awake()
     {
-        lifeTime = 10.0;
+        lifeTime = 2.0;
         currentLife = 0.0;
     }
 

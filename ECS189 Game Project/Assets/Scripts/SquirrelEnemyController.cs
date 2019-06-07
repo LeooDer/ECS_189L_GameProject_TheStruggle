@@ -58,4 +58,12 @@ public class SquirrelEnemyController : MonoBehaviour
         if (collision.gameObject.tag == "Ground")
             this.Rigidbody.velocity = Vector2.zero;
     }
+
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.gameObject.tag == "FriendlyProjectile" || collider.gameObject.tag == "Ground")
+        {
+            Destroy(gameObject);
+        }
+    }
 }
