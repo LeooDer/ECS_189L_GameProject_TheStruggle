@@ -19,23 +19,19 @@ public class HealthManager : MonoBehaviour
         return -1;
     }
     
-    public bool Damaged(int key,double damage)
+    public double Damaged(int key,double damage)
     {
-        if (Health.ContainsKey(key))
+        double currentHealth = Health[key];
+        if ((currentHealth - damage) > 0)
         {
-            double currentHealth = Health[key];
-            if ((currentHealth - damage) > 0)
-            {
-                Health[key] = currentHealth - damage;
-                return true;
-            }
-            else
-            {
-                Remove(key);
-                return false;
-            }
+            Health[key] = currentHealth - damage;
+            return Health[key];
         }
-        return true;
+        else
+        {
+            Remove(key);
+            return 0;
+        }
     }
 
     public void Remove(int key)
