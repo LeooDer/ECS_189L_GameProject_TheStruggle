@@ -108,6 +108,11 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void PlayWalkSound()
+    {
+        AudioManager.instance.Play("FootstepSound");
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         // If we touch the ground, we're grounded

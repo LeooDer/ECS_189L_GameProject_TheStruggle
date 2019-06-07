@@ -15,6 +15,9 @@ namespace Player.Command
                 var KnockbackDirection = KnockbackStrength * KnockbackLeft;
                 rigidBody.velocity = Vector2.zero;
                 rigidBody.AddForce(KnockbackDirection);
+
+                // Play hurt sound
+                AudioManager.instance.Play("HurtSound");
             }
         }
 
