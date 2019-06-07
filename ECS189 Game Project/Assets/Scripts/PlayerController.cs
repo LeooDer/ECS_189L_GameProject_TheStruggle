@@ -8,6 +8,10 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField]
     private GameObject ProjectilePrefab;
+    [SerializeField]
+    private double Health = 100;
+
+    private Animator playerAnimator;
 
     private IPlayerCommand Right;
     private IPlayerCommand Left;
@@ -15,6 +19,8 @@ public class PlayerController : MonoBehaviour
     private IPlayerCommand KnockbackRight;
     private IPlayerCommand KnockbackLeft;
     private float SpeedFactor = 50.0f;
+    private HealthManager healthManager;
+    private int key;
 
     // To keep track of the different states the player can be in
     private enum State { Grounded, Jumping, Hurt };
@@ -28,11 +34,14 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        this.healthManager = GameObject.FindGameObjectWithTag("Manager").GetComponent<HealthManager>();
+        key = this.healthManager.Add(Health);
         this.Right = ScriptableObject.CreateInstance<MovePlayerRightMovement>();
         this.Left = ScriptableObject.CreateInstance<MovePlayerLeftMovement>();
         this.Jump = ScriptableObject.CreateInstance<MovePlayerJumpMovement>();
         this.KnockbackRight = ScriptableObject.CreateInstance<MovePlayerKnockbackRight>();
         this.KnockbackLeft = ScriptableObject.CreateInstance<MovePlayerKnockbackLeft>();
+        this.playerAnimator = GetComponent<Animator>();
         this.currentState = State.Grounded;
         this.currentDirection = Direction.Right;
     }
@@ -54,7 +63,9 @@ public class PlayerController : MonoBehaviour
                 
                 break;
         }
-        
+
+        // Update animations
+        SetAnimatorProperties();
     }
 
     private void GetInput()
@@ -70,6 +81,7 @@ public class PlayerController : MonoBehaviour
             this.currentDirection = Direction.Left;
             this.Left.Execute(this.gameObject);
         }
+
         if (Input.GetButtonDown("Fire1"))
         {
             var projectile = (GameObject)Instantiate(ProjectilePrefab, gameObject.transform.localPosition, gameObject.transform.rotation);
@@ -84,6 +96,13 @@ public class PlayerController : MonoBehaviour
                     break;
             }
         }
+    }
+
+    private void SetAnimatorProperties()
+    {
+        var velocity = this.gameObject.GetComponent<Rigidbody2D>().velocity;
+        playerAnimator.SetFloat("VelocityX", Mathf.Abs(velocity.x));
+        playerAnimator.SetFloat("VelocityY", velocity.y);
     }
 
     private void GetJumpInput()
@@ -101,6 +120,9 @@ public class PlayerController : MonoBehaviour
         // If we touch the ground, we're grounded
         if (collision.gameObject.tag == "Ground")
         {
+            if (this.currentState == State.Hurt)
+                this.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+
             this.currentState = State.Grounded;
         }
 
@@ -112,7 +134,15 @@ public class PlayerController : MonoBehaviour
                 this.KnockbackRight.Execute(this.gameObject);
             else
                 this.KnockbackLeft.Execute(this.gameObject);
-
+            if(!(this.healthManager.Damaged(key,10)))
+            {
+                Debug.Log("Dead");
+                Destroy(gameObject);
+            }
+            else
+            {
+                Debug.Log("Damaged");
+            }
             this.currentState = State.Hurt;
         }
     }

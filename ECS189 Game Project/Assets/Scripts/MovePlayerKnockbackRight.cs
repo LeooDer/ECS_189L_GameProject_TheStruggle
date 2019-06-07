@@ -13,7 +13,7 @@ namespace Player.Command
             if (rigidBody != null)
             {
                 var KnockbackDirection = KnockbackStrength * KnockbackRight;
-                Debug.Log(KnockbackDirection);
+                rigidBody.velocity = Vector2.zero;
                 rigidBody.AddForce(KnockbackDirection);
             }
         }
