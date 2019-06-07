@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1616022557460542914}
   - component: {fileID: 1616022557460542941}
   - component: {fileID: 5633321866844185647}
+  - component: {fileID: 2124726609}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Manager
@@ -56,3 +57,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe45304cb15253e4384499d96b79ca89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2124726609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1616022557460542915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7052ed08eb323e147967a6077a54c721, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: JumpSound
+    clip: {fileID: 8300000, guid: dd6e0a70e1f11a84280ce0000f752301, type: 3}
+    volume: 1
+    pitch: 1.2
+    loop: 0
+    source: {fileID: 0}
+  - name: HurtSound
+    clip: {fileID: 8300000, guid: b9b4ee7b771dd2a47abda94fd6169d73, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: FootstepSound
+    clip: {fileID: 8300000, guid: 32b0f9d1445224943866696ae58f6345, type: 3}
+    volume: 1
+    pitch: 1.7
+    loop: 0
+    source: {fileID: 0}
+  - name: GameplayMusic
+    clip: {fileID: 8300000, guid: e62e19dcffb6bf44e890ae8bab2e928b, type: 3}
+    volume: 0.6
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: ProjectileSound
+    clip: {fileID: 8300000, guid: a56bf81816c6f664b962db4563547027, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}

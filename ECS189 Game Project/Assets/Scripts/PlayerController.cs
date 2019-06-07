@@ -95,6 +95,9 @@ public class PlayerController : MonoBehaviour
                     projectileRigidBody.velocity = projectile.transform.right * SpeedFactor;
                     break;
             }
+
+            // Play Projectile sound effect
+            AudioManager.instance.Play("ProjectileSound");
         }
     }
 
