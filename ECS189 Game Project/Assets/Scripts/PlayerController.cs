@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 using Player.Command;
 
 public class PlayerController : MonoBehaviour
@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
     private float SpeedFactor = 50.0f;
     private HealthManager healthManager;
     private int key;
+    private HUDManager healthBar;
 
     // To keep track of the different states the player can be in
     private enum State { Grounded, Jumping, Hurt };
@@ -34,6 +35,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        this.healthBar = GameObject.FindGameObjectWithTag("Manager").GetComponent<HUDManager>();
         this.healthManager = GameObject.FindGameObjectWithTag("Manager").GetComponent<HealthManager>();
         key = this.healthManager.Add(Health);
         this.Right = ScriptableObject.CreateInstance<MovePlayerRightMovement>();
@@ -139,16 +141,25 @@ public class PlayerController : MonoBehaviour
                 this.KnockbackRight.Execute(this.gameObject);
             else
                 this.KnockbackLeft.Execute(this.gameObject);
-            if(!(this.healthManager.Damaged(key,10)))
+            double currentHealth = this.healthManager.Damaged(key,10);
+            if(currentHealth <= 0)
             {
                 Debug.Log("Dead");
+                healthBar.UpdateHealth(currentHealth);
                 Destroy(gameObject);
+                GameManager.Instance.ChangeScene("Lose");
             }
             else
             {
+                healthBar.UpdateHealth(currentHealth);
                 Debug.Log("Damaged");
             }
             this.currentState = State.Hurt;
         }
+    }
+
+    public double getHealth()
+    {
+        return Health;
     }
 }

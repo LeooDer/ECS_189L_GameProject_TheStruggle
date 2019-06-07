@@ -32,7 +32,7 @@ public class GameManager
         if(!SceneManager.Equals(currentScene,newScene))
         {
             SceneManager.LoadScene(scene);
-            SceneManager.UnloadScene(currentScene);
+      //      SceneManager.UnloadScene(currentScene);
    //         SceneManager.SetActiveScene(newScene);
         }
     }
