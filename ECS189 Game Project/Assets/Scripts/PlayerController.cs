@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 using Player.Command;
 
@@ -13,9 +14,6 @@ public class PlayerController : MonoBehaviour
 
     private Animator playerAnimator;
 
-    private GameObject projectile;
-    private Rigidbody2D projectileRigidBody;
-
     private IPlayerCommand Right;
     private IPlayerCommand Left;
     private IPlayerCommand Jump;
@@ -24,6 +22,7 @@ public class PlayerController : MonoBehaviour
     private float SpeedFactor = 50.0f;
     private HealthManager healthManager;
     private int key;
+    private HUDManager healthBar;
 
     // To keep track of the different states the player can be in
     private enum State { Grounded, Jumping, Hurt };
@@ -37,6 +36,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        this.healthBar = GameObject.FindGameObjectWithTag("Manager").GetComponent<HUDManager>();
         this.healthManager = GameObject.FindGameObjectWithTag("Manager").GetComponent<HealthManager>();
         key = this.healthManager.Add(Health);
         this.Right = ScriptableObject.CreateInstance<MovePlayerRightMovement>();
@@ -87,16 +87,14 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetButtonDown("Fire1"))
         {
+            var projectile = (GameObject)Instantiate(ProjectilePrefab, gameObject.transform.localPosition, gameObject.transform.rotation);
+            var projectileRigidBody = projectile.GetComponent<Rigidbody2D>();
             switch (this.currentDirection)
             {
                 case Direction.Left:
-                    projectile = (GameObject)Instantiate(ProjectilePrefab, gameObject.transform.localPosition + new Vector3(-1, 0, 0), gameObject.transform.rotation);
-                    projectileRigidBody = projectile.GetComponent<Rigidbody2D>();
                     projectileRigidBody.velocity = -1 * projectile.transform.right * SpeedFactor;
                     break;
                 case Direction.Right:
-                    projectile = (GameObject)Instantiate(ProjectilePrefab, gameObject.transform.localPosition + new Vector3(1, 0, 0), gameObject.transform.rotation);
-                    projectileRigidBody = projectile.GetComponent<Rigidbody2D>();
                     projectileRigidBody.velocity = projectile.transform.right * SpeedFactor;
                     break;
             }
@@ -144,16 +142,24 @@ public class PlayerController : MonoBehaviour
                 this.KnockbackRight.Execute(this.gameObject);
             else
                 this.KnockbackLeft.Execute(this.gameObject);
-            if(!(this.healthManager.Damaged(key,10)))
+            double currentHealth = this.healthManager.Damaged(key,10);
+            if(currentHealth <= 0)
             {
                 Debug.Log("Dead");
+                healthBar.UpdateHealth(currentHealth);
                 Destroy(gameObject);
             }
             else
             {
+                healthBar.UpdateHealth(currentHealth);
                 Debug.Log("Damaged");
             }
             this.currentState = State.Hurt;
         }
+    }
+
+    public double getHealth()
+    {
+        return Health;
     }
 }
