@@ -79,7 +79,7 @@ public class BossController : MonoBehaviour
     void Attack3()
     {
 
-        var projectile = (GameObject)Instantiate(ProjectilePrefab3, gameObject.transform.localPosition + new Vector3(Random.Range(-10,0), 7, 0), ProjectilePrefab3.transform.rotation);
+        var projectile = (GameObject)Instantiate(ProjectilePrefab3, gameObject.transform.localPosition + new Vector3(Random.Range(-10,0), 5, 0), ProjectilePrefab3.transform.rotation);
         var rigidbody = projectile.GetComponent<Rigidbody2D>();
         rigidbody.velocity = new Vector2(0, -2);
     }
