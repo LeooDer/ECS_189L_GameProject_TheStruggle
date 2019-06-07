@@ -148,6 +148,7 @@ public class PlayerController : MonoBehaviour
                 Debug.Log("Dead");
                 healthBar.UpdateHealth(currentHealth);
                 Destroy(gameObject);
+                GameManager.Instance.ChangeScene("StartMenu");
             }
             else
             {
