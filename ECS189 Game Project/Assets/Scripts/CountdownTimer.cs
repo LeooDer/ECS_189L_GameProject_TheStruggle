@@ -32,7 +32,7 @@ using UnityEngine.UI;
 
 public class CountdownTimer : MonoBehaviour
 {
-    public int timeLeft = 60;
+    public int timeLeft = 90;
     public Text countdownText;
 
     // Use this for initialization
