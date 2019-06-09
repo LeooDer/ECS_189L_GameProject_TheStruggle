@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BossController : MonoBehaviour
 {
@@ -25,6 +26,8 @@ public class BossController : MonoBehaviour
     private float AttackCycle = 4;
     private float AttackTime = 0;
     private int key;
+
+    public Image healthBar;
 
     void Awake()
     {
@@ -90,6 +93,9 @@ public class BossController : MonoBehaviour
         {
             double currentHealth = this.healthManager.Damaged(key, 5.0);
             Debug.Log(currentHealth);
+
+            healthBar.fillAmount = (float)currentHealth / 100;
+
             if (currentHealth <= 0)
             {
                 Destroy(gameObject);
