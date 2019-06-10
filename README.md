@@ -1,41 +1,11 @@
 # ECS189L Game Project - "The Struggle"
 
-# Description of Game Project
-
-In this project, you will be designing and creating a game in Unity in teams of 5. While you will be responsible for designing the overall direction of your game, you will be given the following constraints:
-* Each team member will have a role and a sub-role.
-* Each team member will be responsible for creating at least one gameplay system.
-* Each team member will be responsible for describing their work in your team's design document. 
-* All roles and sub-roles must be assigned across your team's members.
-* Your game, assets, source code, and project files will be placed in a publicly-accessible GitHub repository.
-
-# Grading
-
-The project will be graded on a 100 point scale with the follow weights:
-* Main Role
-  * 30 Implementation
-  * 10 Documentation
-* Sub-Role
-  * 20 Implementation
-  * 10 Documentation
-* 30 Team score of completed game.
 
 # Submission Information
 
-All of your project materials are due by ~~Friday, June 7th at 1:00 PM~~ Monday, June 10th at 8:00 AM. A portion of your team score points will assessed during the final meeting period on Friday, June 7th at 1:00 PM.
-
-Submissions will be taken from the [team registration spreadsheet](https://docs.google.com/spreadsheets/d/1XJzAVba3Xv8tIHESsGGHAMc50W8S9ytrXSrFoPadhlU/edit?usp=sharing) via your teams GitHub repository link. Your project code
-
-Your repository should include the following .gitignore file in the rood directory of the project: https://gitignore.io/api/osx,unity,linux,windows
-
-
-# Team Member Roles
-
-Each team member must take on one main role and one sub-role. You will create the gameplay systems or complete the design tasks for your roles as well as provide the requested per-role documentation. Each team member must document the gameplay systems and software design patterns they used for their portion of the project.
-
 ## Main Roles
 
-The following are the main roles and their basic descriptions
+The following are the main roles, their basic descriptions, and our implementations of them.
 
 ### User Interface - (Isabel)
 
@@ -70,6 +40,7 @@ In this role, you will be responsible for managing the input methods for your ga
 In most projects, this will be the most complicated role as it is a point of integration for nearly all of the gameplay systems. Traditionally, most of the game logic is placed in a game manager singleton and is referenced as needed by other scripts. It is the job of your team's game logician to manage the various game states (i.e. current level, main menu, main gameplay mode) and data (i.e. time remaining, quest completion status, references to all active enemies and items).  You will document what game states and game data you managed and what design patterns you used to complete your task. Charts are a great way to visually explain how parts of your game logic interact with the other gameplay systems.
 
 ## Sub-Roles
+The following are the sub roles, their basic descriptions, and our implementations of them.
 
 ### Audio - (Marcos)
 
@@ -96,6 +67,9 @@ You are responsible for designing and embedding the story of your game into the 
 ### Press Kit and Trailer - (Isabel)
 
 You are responsible for creating a press kit for your game that includes screenshots and a 1-minute trailer. You should document the choices you made in the press kit and the goals of your trailer in the design document.
+
+[Press Kit]()  
+[Trailer](https://www.youtube.com/watch?v=suK80EOSE2Y)  
 
 ### Game Feel - (Margaret)
 
