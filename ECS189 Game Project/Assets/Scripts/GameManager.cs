@@ -25,6 +25,7 @@ public class GameManager
             return instance;
         }
     }
+
     public void ChangeScene(string scene)
     {
         Scene currentScene = SceneManager.GetActiveScene();
@@ -32,9 +33,14 @@ public class GameManager
         if(!SceneManager.Equals(currentScene,newScene))
         {
             SceneManager.LoadScene(scene);
-      //      SceneManager.UnloadScene(currentScene);
-   //         SceneManager.SetActiveScene(newScene);
         }
+    }
+
+    public bool CheckCurrentScene(string scene)
+    {
+        if(SceneManager.Equals(SceneManager.GetActiveScene(),SceneManager.GetSceneByName(scene)))
+            return true;
+        return false;
     }
 
     public void Pause()

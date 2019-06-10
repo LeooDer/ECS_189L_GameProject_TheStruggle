@@ -10,6 +10,7 @@ TagManager:
   - FriendlyProjectile
   - EnemyProjectile
   - Projectile
+  - Room
   layers:
   - Default
   - TransparentFX
