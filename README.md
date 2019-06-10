@@ -46,7 +46,7 @@ You are responsible for designing and embedding the story of your game into the 
 
 You are responsible for creating a press kit for your game that includes screenshots and a 1-minute trailer. You should document the choices you made in the press kit and the goals of your trailer in the design document.
 
-Trailer: https://youtu.be/pmkxDW5I_6A
+Trailer: https://www.youtube.com/watch?v=pmkxDW5I_6A&list=UUbMAHw9XtzkBdN97gSaNJcA
 
 ### Game Feel - (Margaret)
 
