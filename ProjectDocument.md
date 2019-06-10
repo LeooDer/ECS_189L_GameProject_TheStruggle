@@ -161,7 +161,19 @@ Bossa Nova Theme Loop: https://freesound.org/people/Mrthenoronha/sounds/371844/
 
 ## Gameplay Testing
 
-![](GameplayTesting.csv)
+"Timestamp","What did you enjoy?","What did you not enjoy?","What do you want to add?","How were the controls?"
+"2019/06/07 2:23:33 PM MDT","Really like the feel of the game jump and how you can move while in the air left and right. Being able to jump further while boosting is also a neat addition.","Mainly the UI. The UI needs to be a place where it is more noticable/positioned well.","-Maybe a blocking animation to reduce damage- some of the projectiles are difficult to dodge. 
+-Maybe have a state where you are temporarily invincible for a few seconds upon getting hit, and where you can move around freely.","Excellent! :)"
+"2019/06/07 2:26:40 PM MDT","The davis theme","controls were lowkey hard to remember","nothin","okayyy"
+"2019/06/07 2:30:49 PM MDT","The sound design and platforming","The combat","More levels","I had little issue with the controls"
+"2019/06/07 2:39:47 PM MDT","THE SQUIRRELS! and bikes and gameplay (jump and shoot feels good)","Health may seem low, but it makes it challanging so it's fun. ","Difficulty selection (based on how much health you start off with)","Loved it."
+"2019/06/07 2:42:02 PM MDT","Player and camera movement was smooth","The player health bar was too out of the way. ","Good so far","I wish the shoot and dash controls were remapped as using the pinky was a little awkward."
+"2019/06/07 2:44:46 PM MDT","gameplay","the big squirrel, the dash didn't feel dash","visual on the dash","good!"
+"2019/06/07 2:48:31 PM MDT","The sprinting mechanic was nice","Maybe add knockback/invulnerability after being hit by an enemy .","Read above","Controller would be interesting. but felt good on here"
+"2019/06/07 2:51:31 PM MDT","I loved the visuals, and the game feels quite smooth","Falling off theedge to the left, and the random lines on the screen","More enemies, maybe another firing pattern.","The controls are pretty intuitive, and responsive"
+"2019/06/07 2:56:57 PM MDT","Gameplay was smooth and I liked the theme","Healthbar / UI not very visible","More levels","Intuitive"
+"2019/06/07 3:02:27 PM MDT","I enjoyed the fluidity of the movement especially the jump","Didn't like the attack being the ctrl button","Adding controller support would be fun.","Didn't like the attack button"
+"2019/06/07 3:05:52 PM MDT","variable jump height","controlling everything with one hand","just more platform content","using shift was a little tricky"
 
 **Summarize the key findings from your gameplay tests.**
 
