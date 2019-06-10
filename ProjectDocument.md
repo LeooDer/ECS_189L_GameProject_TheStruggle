@@ -176,7 +176,9 @@ Bossa Nova Theme Loop: https://freesound.org/people/Mrthenoronha/sounds/371844/
 |2019/06/07 3:05:52 PM MDT|variable jump height         |controlling everything with one hand|just more platform content                   |using shift was a little tricky                                                          |
 
 
-**Summarize the key findings from your gameplay tests.**
+### Summary:
+
+The game was generally reviewed well. While a little challenging, the game feel and theme made losing/winning enjoyable. The main complaints were concerned with the UI and control scheme. The UI was hard to see and the controls were, well, hard to control. Reviewers also requested for an expanded level and a variation in attacks and enemies. 
 
 ## Narrative Design
 
