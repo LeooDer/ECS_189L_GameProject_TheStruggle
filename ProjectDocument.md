@@ -61,7 +61,29 @@ Better Jump Video Tutorial: https://www.youtube.com/watch?v=7KiK0Aqtmzc
 
 **Add an entry for each platform or input style your project supports.**
 
-## Game Logic
+## Game Logic (Leander)
+
+# General Game Logics:
+
+Scene Manager(GameManager.cs) -
+
+The scene management was done using a singleton class in the GameManager.cs. As a singleton class and not a monobehaviour, the manager could exists outside a scene and would survive changes in the scene. The game manager used the scene management unity system to facilitate scene changing.
+
+A scene change would be called using:
+
+GameManager.Instance.ChangeScene("Scene Name");
+
+Health Manager(HealthManager.cs) -
+
+The health manager utilized the publisher-subscriber model. It contains a dictionary private field that takes a integer key and a double health value. This holds the health of every game object that would need a health irrespective if they are an ally or an enemy. 
+
+To add health to a game object, do the following steps:
+
+1. In the gameobject, add a private field with the Health Manager Type. Example: private HealthManager healthManager;
+
+2. In the Awake() function, find and save the healthManager in your file system to the newly created field. Example:        this.healthManager = GameObject.FindGameObjectWithTag("Manager").GetComponent<HealthManager>();
+
+# Boss Mechanics:
 
 ![](BossEnter.gif)
 
