@@ -73,6 +73,10 @@ A scene change would be called using:
 
 GameManager.Instance.ChangeScene("Scene Name");
 
+##### Timeout
+
+For the win and lose screen, a timeout.cs script is attached to the main cameras of each scene. It switches back to the main menu after a certain time using the changescene call.
+
 #### Health Manager(HealthManager.cs) 
 
 The health manager utilized the publisher-subscriber model. It contains a dictionary private field that takes a integer key and a double health value. This holds the health of every game object that would need a health irrespective if they are an ally or an enemy. 
@@ -125,6 +129,15 @@ The Boss also utilizes a Boss Room Controller. Around the boss, there is a box c
 
 #### Miscellaneous Contribution:
 
+##### Triggers and Stuff:
+
+###### Win Trigger(WinTrigger Prefab w/ script)
+
+The win trigger uses a single trigger collider that detects the player. After detecting the player, the change scene function is called.
+
+###### Fall Trigger(FallDetector w/ script)
+
+The fall trigger uses a single trigger collider that detects the player. After detecting the player, the change scene function is called.
 
 # Sub-Roles
 
