@@ -114,3 +114,9 @@ MonoBehaviour:
     pitch: 0.49
     loop: 0
     source: {fileID: 0}
+  - name: ProjectileSound
+    clip: {fileID: 8300000, guid: a56bf81816c6f664b962db4563547027, type: 3}
+    volume: 0.8
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
