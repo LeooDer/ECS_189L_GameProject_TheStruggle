@@ -79,6 +79,10 @@ Video tutorial used for Audio Implementation: https://www.youtube.com/watch?v=6O
 
 Sound Effects (Created by ZapSplat, Standard Liscence): https://www.zapsplat.com/page/11/?s=footstep&post_type=music&sound-effect-category-id
 
+Win Sound Effect: https://freesound.org/people/maxmakessounds/sounds/353546/
+
+Lose Sound Effect: https://freesound.org/people/AdamWeeden/sounds/157218/
+
 Bossa Nova Theme Loop: https://freesound.org/people/Mrthenoronha/sounds/371844/
 
 ## Gameplay Testing

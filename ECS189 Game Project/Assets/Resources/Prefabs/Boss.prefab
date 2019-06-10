@@ -394,6 +394,9 @@ MonoBehaviour:
     type: 3}
   ProjectilePrefab3: {fileID: 2795184505688031287, guid: bf9d91fc883ee1544aaf5af3a190e304,
     type: 3}
-  ProjectileSpeed: 10
+  Projectile1Speed: 5
+  Projectile2Speed: 5
+  Projectile3Speed: 5
   Health: 100
+  BossRoom: {fileID: 0}
   healthBar: {fileID: 809779336}

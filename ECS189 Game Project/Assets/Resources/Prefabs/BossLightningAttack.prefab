@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 666280542988162343}
   - component: {fileID: 5314166064370403701}
   m_Layer: 0
-  m_Name: BossProjectile3
+  m_Name: BossLightningAttack
   m_TagString: EnemyProjectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
