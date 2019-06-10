@@ -1,37 +1,7 @@
 # ECS189L Game Project - "The Struggle"
 
-# Description of Game Project
-
-In this project, you will be designing and creating a game in Unity in teams of 5. While you will be responsible for designing the overall direction of your game, you will be given the following constraints:
-* Each team member will have a role and a sub-role.
-* Each team member will be responsible for creating at least one gameplay system.
-* Each team member will be responsible for describing their work in your team's design document. 
-* All roles and sub-roles must be assigned across your team's members.
-* Your game, assets, source code, and project files will be placed in a publicly-accessible GitHub repository.
-
-# Grading
-
-The project will be graded on a 100 point scale with the follow weights:
-* Main Role
-  * 30 Implementation
-  * 10 Documentation
-* Sub-Role
-  * 20 Implementation
-  * 10 Documentation
-* 30 Team score of completed game.
 
 # Submission Information
-
-All of your project materials are due by ~~Friday, June 7th at 1:00 PM~~ Monday, June 10th at 8:00 AM. A portion of your team score points will assessed during the final meeting period on Friday, June 7th at 1:00 PM.
-
-Submissions will be taken from the [team registration spreadsheet](https://docs.google.com/spreadsheets/d/1XJzAVba3Xv8tIHESsGGHAMc50W8S9ytrXSrFoPadhlU/edit?usp=sharing) via your teams GitHub repository link. Your project code
-
-Your repository should include the following .gitignore file in the rood directory of the project: https://gitignore.io/api/osx,unity,linux,windows
-
-
-# Team Member Roles
-
-Each team member must take on one main role and one sub-role. You will create the gameplay systems or complete the design tasks for your roles as well as provide the requested per-role documentation. Each team member must document the gameplay systems and software design patterns they used for their portion of the project.
 
 ## Main Roles
 
