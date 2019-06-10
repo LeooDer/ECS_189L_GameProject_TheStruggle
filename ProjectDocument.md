@@ -63,9 +63,9 @@ Better Jump Video Tutorial: https://www.youtube.com/watch?v=7KiK0Aqtmzc
 
 ## Game Logic (Leander)
 
-# General Game Logics:
+### General Game Logics:
 
-Scene Manager(GameManager.cs) -
+#### Scene Manager(GameManager.cs)
 
 The scene management was done using a singleton class in the GameManager.cs. As a singleton class and not a monobehaviour, the manager could exists outside a scene and would survive changes in the scene. The game manager used the scene management unity system to facilitate scene changing.
 
@@ -73,7 +73,7 @@ A scene change would be called using:
 
 GameManager.Instance.ChangeScene("Scene Name");
 
-Health Manager(HealthManager.cs) -
+#### Health Manager(HealthManager.cs) 
 
 The health manager utilized the publisher-subscriber model. It contains a dictionary private field that takes a integer key and a double health value. This holds the health of every game object that would need a health irrespective if they are an ally or an enemy. 
 
@@ -82,14 +82,49 @@ To add health to a game object, do the following steps:
 1. In the gameobject, add a private field with the Health Manager Type. Example: private HealthManager healthManager;
 
 2. In the Awake() function, find and save the healthManager in your file system to the newly created field. Example:        this.healthManager = GameObject.FindGameObjectWithTag("Manager").GetComponent<HealthManager>();
+  
+3. Add a integer private field so we can save the key returned by the Add(double desiredhealth) of the HealthManager class. Example:        key = this.healthManager.Add(Health);
+This key will a unique identifier to the game object and it will be used for interacting with the health manager.
 
-# Boss Mechanics:
+4. Finally, dealing damage to the key holder would occur by calling the health manager function called Damaged(int key,double damage).
+Example: this.healthManager.Damaged(key, 5.0);
+Damaged() will return the current health.
+If the damage kills the keyholder, the key/damage pair will be deleted from the dictionary and 0 will be returned as current health.
 
-![](BossEnter.gif)
+### Projectile Controllers:
+
+#### BossProjectileController & ProjectileController(Players)
+
+The projectile controllers are attached to each projectile prefabs. Both have the same functions. The controllers have a lifeTime and a currentLife fields that initialized in the awake function and also serve the purpose of dictating the life span of the projectile. The Update() function interates over the currentLife field. Once it reaches the lifeTime field in value, the projectile is deleted. The projectiles also have a OnTriggerEnter2D function that detects collision with the opposite faction(Player detects for Enemy and vice versa) or ground. If it is triggered, the object is destroyed. I decided to do a projectile script so the projectiles could timeout when not needed anymore.
+
+### Boss Mechanics:
+
+The Boss is controlled by the BossController. The controller handles the boss attacks, damage detection, and animations. The Boss uses the health manager to manage its health. Damage detection is done with trigger collision and the use of tags.
+
+#### Attack Descriptions:
+
+Each attack follows its own timer to decide when to activate.
+
+##### Attack 1: AOE Spread Attack
+
+##### Attack 2: Single Large Swing Attack
+
+##### Attack 3: Slow, but deadly lightning Attack
+Attack 3 does a delay attack. With an attack cycle of 2 sec, the attack saves the position at time 0, then at time 2, it attacks at the position.
 
 ![](BossAttack.gif)
 
+#### Boss Enter/Exit
+
+The Boss also utilizes a Boss Room Controller. Around the boss, there is a box collider 2D that detects if the player has entered the area. In the BossRoomController, the OnTriggerEnter and OnTriggerExit functions sets the value of a boolean field. The BossController accesses this field to check if it can set its own Active field. If the Active field is set to true, the Boss attacks. If its false, the boss does not. This check is done on every update.
+
+![](BossEnter.gif)
+
 ![](BossLeave.gif)
+
+
+#### Miscellaneous Contribution:
+
 
 # Sub-Roles
 
