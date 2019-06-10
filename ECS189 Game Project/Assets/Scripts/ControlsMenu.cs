@@ -5,6 +5,6 @@ public class ControlsMenu : MonoBehaviour
 {
     public void BackToMenu()
     {
-        GameManager.Instance.ChangeScene("MainMenu");
+        GameManager.Instance.ChangeScene("StartMenu");
     }
 }

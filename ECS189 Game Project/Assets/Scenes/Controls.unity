@@ -465,12 +465,12 @@ PrefabInstance:
     - target: {fileID: 7480269904885724397, guid: c7fdde85173cca640a5a31a721ce4f7d,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: set_name
+      value: BackToMenu
       objectReference: {fileID: 0}
     - target: {fileID: 7480269904885724397, guid: c7fdde85173cca640a5a31a721ce4f7d,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7480269904885724397, guid: c7fdde85173cca640a5a31a721ce4f7d,
         type: 3}
@@ -481,8 +481,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 11500000, guid: fe45304cb15253e4384499d96b79ca89,
-        type: 3}
+      objectReference: {fileID: 7480269904235119651}
     - target: {fileID: 7480269904885724397, guid: c7fdde85173cca640a5a31a721ce4f7d,
         type: 3}
       propertyPath: m_Colors.m_DisabledColor.a
@@ -508,5 +507,22 @@ PrefabInstance:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3150315264983451320, guid: c7fdde85173cca640a5a31a721ce4f7d,
+        type: 3}
+      propertyPath: m_Name
+      value: ControlsButton
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c7fdde85173cca640a5a31a721ce4f7d, type: 3}
+--- !u!114 &7480269904235119651 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 669194763691961284, guid: c7fdde85173cca640a5a31a721ce4f7d,
+    type: 3}
+  m_PrefabInstance: {fileID: 7480269904235119650}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe45304cb15253e4384499d96b79ca89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
