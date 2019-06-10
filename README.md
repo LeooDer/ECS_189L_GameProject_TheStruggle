@@ -5,7 +5,7 @@
 
 ## Main Roles
 
-The following are the main roles and their basic descriptions
+The following are the main roles, their basic descriptions, and our implementations of them.
 
 ### User Interface - (Isabel)
 
@@ -28,6 +28,7 @@ In this role, you will be responsible for managing the input methods for your ga
 In most projects, this will be the most complicated role as it is a point of integration for nearly all of the gameplay systems. Traditionally, most of the game logic is placed in a game manager singleton and is referenced as needed by other scripts. It is the job of your team's game logician to manage the various game states (i.e. current level, main menu, main gameplay mode) and data (i.e. time remaining, quest completion status, references to all active enemies and items).  You will document what game states and game data you managed and what design patterns you used to complete your task. Charts are a great way to visually explain how parts of your game logic interact with the other gameplay systems.
 
 ## Sub-Roles
+The following are the sub roles, their basic descriptions, and our implementations of them.
 
 ### Audio - (Marcos)
 
