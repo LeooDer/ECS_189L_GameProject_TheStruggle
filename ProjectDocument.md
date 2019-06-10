@@ -63,7 +63,11 @@ Better Jump Video Tutorial: https://www.youtube.com/watch?v=7KiK0Aqtmzc
 
 ## Game Logic
 
-**Document what game states and game data you managed and what design patterns you used to complete your task.**
+![](BossEnter.gif)
+
+![](BossAttack.gif)
+
+![](BossLeave.gif)
 
 # Sub-Roles
 
