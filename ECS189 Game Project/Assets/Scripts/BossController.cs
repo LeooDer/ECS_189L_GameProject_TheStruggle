@@ -15,6 +15,8 @@ public class BossController : MonoBehaviour
     private float ProjectileSpeed;
     [SerializeField]
     private double Health;
+    [SerializeField]
+    private GameObject BossRoom;
     private HealthManager healthManager;
     private Animator BossAnimator;
     private float Attack1Time = 3;
@@ -26,11 +28,13 @@ public class BossController : MonoBehaviour
     private float AttackCycle = 4;
     private float AttackTime = 0;
     private int key;
+    private bool Active;
 
     public Image healthBar;
 
     void Awake()
     {
+        Active = false;
         this.healthManager = GameObject.FindGameObjectWithTag("Manager").GetComponent<HealthManager>();
         key = this.healthManager.Add(Health);
         this.BossAnimator = GetComponent<Animator>();
@@ -40,24 +44,28 @@ public class BossController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Attack1TimeCounter > Attack1Time)
+        Active = BossRoom.GetComponent<BossRoomController>().getState();
+        if (Active)
         {
-            Attack1();
-            Attack1TimeCounter = 0;
+            if (Attack1TimeCounter > Attack1Time)
+            {
+                Attack1();
+                Attack1TimeCounter = 0;
+            }
+            if (Attack2TimeCounter > Attack2Time)
+            {
+                Attack2();
+                Attack2TimeCounter = 0;
+            }
+            if (Attack3TimeCounter > Attack3Time)
+            {
+                Attack3();
+                Attack3TimeCounter = 0;
+            }
+            Attack1TimeCounter += Time.deltaTime;
+            Attack2TimeCounter += Time.deltaTime;
+            Attack3TimeCounter += Time.deltaTime;
         }
-        if (Attack2TimeCounter > Attack2Time)
-        {
-            Attack2();
-            Attack2TimeCounter = 0;
-        }
-        if (Attack3TimeCounter > Attack3Time)
-        {
-            Attack3();
-            Attack3TimeCounter = 0;
-        }
-        Attack1TimeCounter += Time.deltaTime;
-        Attack2TimeCounter += Time.deltaTime;
-        Attack3TimeCounter += Time.deltaTime;
 }
 
     void Attack1()
@@ -73,6 +81,7 @@ public class BossController : MonoBehaviour
 
     void Attack2()
     {
+        AudioManager.instance.Play("BossAttack2");
         this.BossAnimator.Play("Boss-Attack");
         var projectile = (GameObject)Instantiate(ProjectilePrefab2, gameObject.transform.localPosition + new Vector3(0, 1, 0), gameObject.transform.rotation);
         var rigidbody = projectile.GetComponent<Rigidbody2D>();
@@ -100,6 +109,14 @@ public class BossController : MonoBehaviour
             {
                 Destroy(gameObject);
             }
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collider)
+    {
+        if(collider.gameObject.tag == "MainCamera")
+        {
+            Active = false;
         }
     }
 }
