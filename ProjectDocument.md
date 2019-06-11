@@ -6,15 +6,15 @@
 
 Created by Isabel Kalogiannis, Marcos Alcantar, Jill Parodi, Margaret Sit, and Leander Ty
 
-Have you ever experienced those bike traffic-ridden, hectic campus commutes to your classes during your time at UC Davis? Well, through this game you will experience and relive those moments again! Rush to class as you avoid bikers and bikers in this 2D platformer that was inspired by the classics, like Super Mario Bros! Beat the timer and make it to class on time to avoid losing those precious clicker points and save your grade!
+Have you ever experienced those bike traffic-ridden, hectic campus commutes to your classes during your time at UC Davis? Well, through this game you will experience and relive those moments again! Rush to class as you avoid bikers and squirrels in this 2D platformer that was inspired by the classics, like Super Mario Bros! Beat the timer and make it to class on time to avoid losing those precious clicker points and save your grade!
 
 ## Gameplay explanation ##
 
 **In this section, explain how the game should be played. Treat this like a manual within a game. It is encouraged to explain the button mappings and the most optimal gameplay strategy.**
 
 ![](ControlsScreenshot.PNG)
-
-
+The controls are explained above. You have to run instead of walk to be able to pass certain parts of the level such as  
+shift-run-jumping to platforms to be able to jump over the wall.  You have to throw books using ctrl or the left mouse button to fight squirrels and the boss before the end of the level.
 
 # Main Roles #
 
