@@ -12,7 +12,7 @@ Have you ever experienced those bike traffic-ridden, hectic campus commutes to y
 
 **In this section, explain how the game should be played. Treat this like a manual within a game. It is encouraged to explain the button mappings and the most optimal gameplay strategy.**
 
-![](ControlsScreenshot.png)
+![](ControlsScreenshot.PNG)
 
 
 
