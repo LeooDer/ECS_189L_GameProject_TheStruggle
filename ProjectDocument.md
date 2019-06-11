@@ -27,11 +27,11 @@ Here is an example:
 
 You should replay any **bold text** with your own relevant information. Liberally use the template when necessary and appropriate.
 
-## User Interface
+## User Interface - (Isabel)
 
 **Describe your user interface and how it relates to gameplay. This can be done via the template.**
 
-## Movement/Physics
+## Movement/Physics - (Marcos)
 
 The implementation of the movement conventions was closely tied to how the input was implemented. We used Unity’s 2D physics system and tweaked the values of variables to accomplish a weighty feel to the character’s movement while also letting the player have fair amount of control. By using what we learned from the command pattern exercise in our first assignment, we were able to separate movement for each button input. This allowed us to focus on implementing a jump that could be controlled based on how long the jump button was held. To implement that, we used a [video tutorial](https://www.youtube.com/watch?v=7KiK0Aqtmzc) and we altered the values of the player’s rigidbody velocity when we detected vertical movement. We made the jump up take longer than the fall to give a controlled jump with a weighty feel just like how Mario games do so. The gravity scale on the player was also doubled to make the falling faster.
 
@@ -47,19 +47,19 @@ For handling collisions between the player and the level, we used the Box Collid
 
 Better Jump Video Tutorial: https://www.youtube.com/watch?v=7KiK0Aqtmzc
 
-## Animation and Visuals
+## Animation and Visuals - (Jill)
 
 **List your assets including their sources, and licenses.**
 
 **Describe how your work intersects with game feel, graphic design, and world-building. Include your visual style guide if one exists.**
 
-## Input
+## Input - (Margaret)
 
 **Describe the default input configuration.**
 
 **Add an entry for each platform or input style your project supports.**
 
-## Game Logic (Leander)
+## Game Logic - (Leander)
 
 ### General Game Logics:
 
@@ -139,7 +139,7 @@ The fall trigger uses a single trigger collider that detects the player. After d
 
 # Sub-Roles
 
-## Audio
+## Audio - (Marcos)
 
 For audio, we chose to have retro-style 8-bit sound effects to compliment the visual style of the game. These type of sound effects are closely associated to older arcade games, including classic platformers like Super Mario Bros., Metroid, and Castlevania. We thought the pixel art assets and these type of sound effects would compliment each other well. They helped give the players an arcade-like experience and the feeling that they’re playing a game in the style of these old classics. The background music was a short and fun-sounding bossa nova loop that we felt would add a little more personality. 
 
@@ -157,7 +157,7 @@ Lose Sound Effect: https://freesound.org/people/AdamWeeden/sounds/157218/
 
 Bossa Nova Theme Loop: https://freesound.org/people/Mrthenoronha/sounds/371844/
 
-## Gameplay Testing
+## Gameplay Testing - (Leander)
 
 |Timestamp|What did you enjoy?          |What did you not enjoy?|What do you want to add?                     |How were the controls?                                                                   |
 |---------|-----------------------------|-----------------------|---------------------------------------------|-----------------------------------------------------------------------------------------|
@@ -178,18 +178,19 @@ Bossa Nova Theme Loop: https://freesound.org/people/Mrthenoronha/sounds/371844/
 
 The game was generally reviewed well. While a little challenging, the game feel and theme made losing/winning enjoyable. The main complaints were concerned with the UI and control scheme. The UI was hard to see and the controls were, well, hard to control. Reviewers also requested for an expanded level and a variation in attacks and enemies. 
 
-## Narrative Design
+## Narrative Design - (Jill)
 
 **oDocument how the narrative is present in the game via assets, gameplay systems, and gameplay.** 
 
-## Press Kit and Trailer
+## Press Kit and Trailer - (Isabel)
 
 **Include links to your presskit materials and trailer.**
 
 **Describe how you showcased your work. How did you choose what to show in the trailer? Why did you choose your screenshots?**
+[Press Kit]()  
+[Trailer](https://www.youtube.com/watch?v=suK80EOSE2Y)  
 
 
-
-## Game Feel
+## Game Feel - (Margaret)
 
 **Document what you added to and how you tweaked your game to improve its game feel.**
