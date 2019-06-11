@@ -70,8 +70,11 @@ PlayerControlller script is the overall script that uses the command pattern to 
 During the main gameplay, the inputs for the game are the following: 
 
 Walk using the Left Arrow and Right Arrow or the A and D keys.
+
 Run using the Shift Key while also pressing down the inputs for Walk.
+
 Jump using the Space Key.
+
 Throw using the Ctrl key or Mouse Right Click button.
 
 PlayerController script maps all input commands to IPlayerCommand Scripts that implement the Execute method.
@@ -84,7 +87,8 @@ Player’s Fire3 input is mapped to Shift Key and implements speed up of Player�
 
 An instance of the IPlayerCommand MovePlayerJumpMovement is bound to Player’s Jump input that is mapped to Space Key and implements jump movement.
 
-Player’s Fire1 input is mapped to Ctrl Key or Mouse right click and use to implement Throw. When the PlayerController detects the Fire1 input, a new projectile is instantiated for a player to shoot with its velocity and lifespan set in PlayerController and ProjectileController.	
+Player’s Fire1 input is mapped to Ctrl Key or Mouse right click and use to implement Throw. 
+When the PlayerController detects the Fire1 input, a new projectile is instantiated for a player to shoot with its velocity and lifespan set in PlayerController and ProjectileController.	
 
 ### Input States
 We also created multiple states to handle the inputs for different states. The states included being grounded, jumping, getting hurt, left direction, and right direction. 
@@ -106,15 +110,25 @@ Main menu takes as input the Mouse right click where the Player can choose betwe
 
 #### References to Scripts 
 [IPlayerCommand](https://github.com/isaboi/ECS189L_GameProject/blob/1ad1a81857f3214cf5df48a2a2e7dce116cfb6c1/ECS189%20Game%20Project/Assets/Scripts/IPlayerCommand.cs#L5).
+
 [PlayerController](https://github.com/isaboi/ECS189L_GameProject/blob/1ad1a81857f3214cf5df48a2a2e7dce116cfb6c1/ECS189%20Game%20Project/Assets/Scripts/PlayerController.cs#L7).
+
 [MovePlayerLeftMovement](https://github.com/isaboi/ECS189L_GameProject/blob/1ad1a81857f3214cf5df48a2a2e7dce116cfb6c1/ECS189%20Game%20Project/Assets/Scripts/MovePlayerLeftMovement.cs#L9).
+
 [MovePlayerRightMovement](https://github.com/isaboi/ECS189L_GameProject/blob/1ad1a81857f3214cf5df48a2a2e7dce116cfb6c1/ECS189%20Game%20Project/Assets/Scripts/MovePlayerRightMovement.cs#L9).
+
 [MovePlayerJumpMovement](https://github.com/isaboi/ECS189L_GameProject/blob/1ad1a81857f3214cf5df48a2a2e7dce116cfb6c1/ECS189%20Game%20Project/Assets/Scripts/MovePlayerJumpMovement.cs#L6).
+
 [MovePlayerKnockbackLeft](https://github.com/isaboi/ECS189L_GameProject/blob/1ad1a81857f3214cf5df48a2a2e7dce116cfb6c1/ECS189%20Game%20Project/Assets/Scripts/MovePlayerKnockbackLeft.cs#L5).
+
 [MovePlayerKnockbackRight](https://github.com/isaboi/ECS189L_GameProject/blob/1ad1a81857f3214cf5df48a2a2e7dce116cfb6c1/ECS189%20Game%20Project/Assets/Scripts/MovePlayerKnockbackRight.cs#L5).
+
 [ProjectileController](https://github.com/isaboi/ECS189L_GameProject/blob/1ad1a81857f3214cf5df48a2a2e7dce116cfb6c1/ECS189%20Game%20Project/Assets/Scripts/ProjectileController.cs#L5).
+
 [HUDManager](https://github.com/isaboi/ECS189L_GameProject/blob/1ad1a81857f3214cf5df48a2a2e7dce116cfb6c1/ECS189%20Game%20Project/Assets/Scripts/HUDManager.cs#L6).
+
 [HealthManager](https://github.com/isaboi/ECS189L_GameProject/blob/1ad1a81857f3214cf5df48a2a2e7dce116cfb6c1/ECS189%20Game%20Project/Assets/Scripts/HealthManager.cs#L5).
+
 [GameManager](https://github.com/isaboi/ECS189L_GameProject/blob/1ad1a81857f3214cf5df48a2a2e7dce116cfb6c1/ECS189%20Game%20Project/Assets/Scripts/GameManager.cs#L7).
 
 
