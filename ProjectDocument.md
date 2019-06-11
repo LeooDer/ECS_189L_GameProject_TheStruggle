@@ -1,4 +1,4 @@
-# Game Basic Information #
+# Game Basic Information - The Struggle #
 
 ## Summary ##
 
@@ -30,6 +30,20 @@ You should replay any **bold text** with your own relevant information. Liberall
 ## User Interface - (Isabel)
 
 **Describe your user interface and how it relates to gameplay. This can be done via the template.**
+In this role, you are responsible for the user interface elements of the game. This typically includes the contents of the heads up display or HUD. This traditionally comprises gameplay status information such as player character health, score, resources like magic points or gold,  and time-keepers. This is also responsible for menu and credit screens. You are responsible for documenting the various UI elements you implement and how they interact with the changing state of the game.
+
+Main Menu [http://theflyingkeyboard.net/unity/unity-ui-c-simple-main-menu/]
+Choose character, girl or boy
+Start button
+Credits button
+In-game UI
+Countdown timer - 1 minute
+Boss Health Bar
+Player Health Bar in canvas panel
+Speech Bubbles
+Save (Optional)
+Game Over Screen, ask if user wants to play again
+
 
 ## Movement/Physics - (Marcos)
 
