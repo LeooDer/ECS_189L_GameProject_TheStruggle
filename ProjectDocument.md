@@ -257,7 +257,7 @@ The game was generally reviewed well. While a little challenging, the game feel 
 **oDocument how the narrative is present in the game via assets, gameplay systems, and gameplay.** 
 
 ## Press Kit and Trailer - (Isabel)
-The link to the Press Kit pdf in Github and the link to the trailer on Youtube are below.
+The link to the Press Kit pdf in Github and the link to the trailer on Youtube are below.  
 [Press Kit](https://github.com/isaboi/ECS189L_GameProject/blob/master/TheStruggle_PressKit.pdf)  
 [Trailer](https://www.youtube.com/watch?v=suK80EOSE2Y)  
 We decided to showcase our work in the trailer by showing off some of the main gameplay in action but without spoiling the ending  
