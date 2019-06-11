@@ -75,7 +75,7 @@ Run using the Shift Key while also pressing down the inputs for Walk.
 
 Jump using the Space Key.
 
-Throw using the Ctrl Key or Left Mouse Click button.
+Throw using the Ctrl Key or Left Mouse button.
 
 PlayerController script maps all input commands to IPlayerCommand Scripts that implement the Execute method.
 
@@ -87,7 +87,7 @@ Player’s Fire3 input is mapped to Shift Key and implements speed up of Player�
 
 An instance of the IPlayerCommand MovePlayerJumpMovement is bound to Player’s Jump input that is mapped to Space Key and implements jump movement.
 
-Player’s Fire1 input is mapped to Ctrl Key or Left Mouse Click and use to implement Throw. 
+Player’s Fire1 input is mapped to Ctrl Key or Left Mouse button and use to implement Throw. 
 When the PlayerController detects the Fire1 input, a new projectile is instantiated for a player to shoot with its velocity and lifespan set in PlayerController and ProjectileController.	
 
 ### Input States
@@ -106,7 +106,7 @@ Player starts in Grounded state. When the Jump input is detected and state is Gr
 The IPlayerCommands and states are used in PlayerController. In the update function, the PlayerController gets the input from the keyboard and looks for the appropriate IPlayerCommand to handle and execute the command based on the states and also collision detection.
 
 #### Main Menu and Control Screen
-Main menu takes as input the LeftMouse click where the Player can choose between playing the game and navigating to the control screen to see the controls. The control screen takes as input Left Mouse click to go back to Main menu.
+Main menu takes as input the Left Mouse button where the Player can choose between playing the game and navigating to the control screen to see the controls. The control screen takes as input Left Mouse button to go back to Main menu.
 
 #### References to Scripts 
 [IPlayerCommand](https://github.com/isaboi/ECS189L_GameProject/blob/1ad1a81857f3214cf5df48a2a2e7dce116cfb6c1/ECS189%20Game%20Project/Assets/Scripts/IPlayerCommand.cs#L5).
