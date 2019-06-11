@@ -258,8 +258,8 @@ The game was generally reviewed well. While a little challenging, the game feel 
 
 ## Press Kit and Trailer - (Isabel)
 The link to the Press Kit pdf in Github and the link to the trailer on Youtube are below.  
-[Press Kit](https://github.com/isaboi/ECS189L_GameProject/blob/master/TheStruggle_PressKit.pdf)  
-[Trailer](https://www.youtube.com/watch?v=suK80EOSE2Y)  
+* [Press Kit](https://github.com/isaboi/ECS189L_GameProject/blob/master/TheStruggle_PressKit.pdf)  
+* [Trailer](https://www.youtube.com/watch?v=suK80EOSE2Y)  
 We decided to showcase our work in the trailer by showing off some of the main gameplay in action but without spoiling the ending  
 of the level. Trailers should not be spoilers.  
 In the press kit, we chose to provide screenshots of some of the major gameplay art such as the start menu, different NPCs/enemies,   
