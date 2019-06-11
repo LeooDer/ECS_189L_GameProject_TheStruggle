@@ -10,11 +10,9 @@ Have you ever experienced those bike traffic-ridden, hectic campus commutes to y
 
 ## Gameplay explanation ##
 
-**In this section, explain how the game should be played. Treat this like a manual within a game. It is encouraged to explain the button mappings and the most optimal gameplay strategy.**
-
-![](ControlsScreenshot.PNG)
-The controls are explained above. You have to run instead of walk to be able to pass certain parts of the level such as  
+The controls are explained below. You have to run instead of walk to be able to pass certain parts of the level such as  
 shift-run-jumping to platforms to be able to jump over the wall.  You have to throw books using ctrl or the left mouse button to fight squirrels and the boss before the end of the level.
+![](ControlsScreenshot.PNG)
 
 # Main Roles #
 
