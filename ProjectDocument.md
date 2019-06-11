@@ -257,18 +257,13 @@ The game was generally reviewed well. While a little challenging, the game feel 
 **oDocument how the narrative is present in the game via assets, gameplay systems, and gameplay.** 
 
 ## Press Kit and Trailer - (Isabel)
-
-**Include links to your presskit materials and trailer.**
-
-**Describe how you showcased your work. How did you choose what to show in the trailer? Why did you choose your screenshots?**
 The link to the Press Kit pdf in Github and the link to the trailer on Youtube are below.
 [Press Kit](https://github.com/isaboi/ECS189L_GameProject/blob/master/TheStruggle_PressKit.pdf)  
 [Trailer](https://www.youtube.com/watch?v=suK80EOSE2Y)  
 We decided to showcase our work in the trailer by showing off some of the main gameplay in action but without spoiling the ending  
 of the level. Trailers should not be spoilers.  
 In the press kit, we chose to provide screenshots of some of the major gameplay art such as the start menu, different NPCs/enemies,   
-and boss (Gunrock) that the player must defeat to make itto class in time. I followed the layout of the [Shovel Knight Press Kit](https://yachtclubgames.com/shovel-knight-treasure-trove/)  
-to make the press kit for our game.
+and boss (Gunrock) that the player must defeat to make itto class in time. I followed the layout of the [Shovel Knight Press Kit](https://yachtclubgames.com/shovel-knight-treasure-trove/) to make the press kit for our game.
 
 ## Game Feel - (Margaret)
 
