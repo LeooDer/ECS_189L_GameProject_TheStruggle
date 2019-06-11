@@ -55,9 +55,69 @@ Better Jump Video Tutorial: https://www.youtube.com/watch?v=7KiK0Aqtmzc
 
 ## Input - (Margaret)
 
-**Describe the default input configuration.**
+#### Platform and Input Styles
+Our project supports Unity Game version 2018.3.11f1 on PC, Mac, and Linux Standalone Windows platform. Our project support the input style of keyboard and mouse.
 
-**Add an entry for each platform or input style your project supports.**
+We used what we learn from command pattern exercise in our first assignment to separate movement for each button input. 
+
+#### IPlayerCommand (IPlayerCommand.cs)
+IPlayerCommand script is the interface to the command pattern for executing a command. IPlayerCommand includes the Execute method that takes a game object which executes the command. 
+
+#### PlayerController (PlayerController.cs)
+PlayerControlller script is the overall script that uses the command pattern to manage input. 
+
+### Inputs
+During the main gameplay, the inputs for the game are the following: 
+
+Walk using the Left Arrow and Right Arrow or the A and D keys.
+Run using the Shift Key while also pressing down the inputs for Walk.
+Jump using the Space Key.
+Throw using the Ctrl key or Mouse Right Click button.
+
+PlayerController script maps all input commands to IPlayerCommand Scripts that implement the Execute method.
+
+An instance of the IPlayerCommand MovePlayerLeftMovement is bound to Player’s Input.GetAxis with axis Horizontal that is mapped to Left Arrow or A Key and implements left movement for Walk.
+
+An instance of the IPlayerCommand MovePlayerRightMovement is bound to Player’s Input.GetAxis with axis Horizontal that is mapped to Right Arrow or D Key and implements right movement for Walk.
+
+Player’s Fire3 input is mapped to Shift Key and implements speed up of Player’s left and right movement for Run within the MovePlayerLeftMovement and MovePlayerRIghtMovement.
+
+An instance of the IPlayerCommand MovePlayerJumpMovement is bound to Player’s Jump input that is mapped to Space Key and implements jump movement.
+
+Player’s Fire1 input is mapped to Ctrl Key or Mouse right click and use to implement Throw. When the PlayerController detects the Fire1 input, a new projectile is instantiated for a player to shoot with its velocity and lifespan set in PlayerController and ProjectileController.	
+
+### Input States
+We also created multiple states to handle the inputs for different states. The states included being grounded, jumping, getting hurt, left direction, and right direction. 
+
+State Grounded is used to handle the Jump input to make sure the jump movement can only be executed when the player is on the ground.
+
+State Jumping indicates that the player is jumping and prevents doing another jump while in the air. 
+
+State Hurt is used to with instances of the IPlayerCommands MovePlayerKnockbackRight and MovePlayerKnowbackLeft to add knockback movement in appropriate direction and indicate that damage was dealt when the player collides with an enemy. This interacts with the UI/HUD by calling method Damage() to deal with damage and method UpdateHealth() to update the health bar. This also interacts with GameManager to change the scene to Lose if the player runs out of health after updated damage.  
+
+States Left and Right is used to determine the direction to set the velocity of the projectile. We wanted the player to shoot the project in same direction it is facing. 
+
+Player starts in Grounded state. When the Jump input is detected and state is Grounded, then the state can change from Grounded to Jumping. The state can change to Hurt when player collides with enemy. The state can change back to Grounded when the player is touching the ground. 
+
+The IPlayerCommands and states are used in PlayerController. In the update function, the PlayerController gets the input from the keyboard and looks for the appropriate IPlayerCommand to handle and execute the command based on the states and also collision detection.
+
+#### Main Menu and Control Screen
+Main menu takes as input the Mouse right click where the Player can choose between playing the game and navigating to the control screen to see the controls. The control screen takes as input Mouse right click to go back to Main menu.
+
+#### References to Scripts 
+[IPlayerCommand](https://github.com/isaboi/ECS189L_GameProject/blob/1ad1a81857f3214cf5df48a2a2e7dce116cfb6c1/ECS189%20Game%20Project/Assets/Scripts/IPlayerCommand.cs#L5).
+[PlayerController](https://github.com/isaboi/ECS189L_GameProject/blob/1ad1a81857f3214cf5df48a2a2e7dce116cfb6c1/ECS189%20Game%20Project/Assets/Scripts/PlayerController.cs#L7).
+[MovePlayerLeftMovement](https://github.com/isaboi/ECS189L_GameProject/blob/1ad1a81857f3214cf5df48a2a2e7dce116cfb6c1/ECS189%20Game%20Project/Assets/Scripts/MovePlayerLeftMovement.cs#L9).
+[MovePlayerRightMovement](https://github.com/isaboi/ECS189L_GameProject/blob/1ad1a81857f3214cf5df48a2a2e7dce116cfb6c1/ECS189%20Game%20Project/Assets/Scripts/MovePlayerRightMovement.cs#L9).
+[MovePlayerJumpMovement](https://github.com/isaboi/ECS189L_GameProject/blob/1ad1a81857f3214cf5df48a2a2e7dce116cfb6c1/ECS189%20Game%20Project/Assets/Scripts/MovePlayerJumpMovement.cs#L6).
+[MovePlayerKnockbackLeft](https://github.com/isaboi/ECS189L_GameProject/blob/1ad1a81857f3214cf5df48a2a2e7dce116cfb6c1/ECS189%20Game%20Project/Assets/Scripts/MovePlayerKnockbackLeft.cs#L5).
+[MovePlayerKnockbackRight](https://github.com/isaboi/ECS189L_GameProject/blob/1ad1a81857f3214cf5df48a2a2e7dce116cfb6c1/ECS189%20Game%20Project/Assets/Scripts/MovePlayerKnockbackRight.cs#L5).
+[ProjectileController](https://github.com/isaboi/ECS189L_GameProject/blob/1ad1a81857f3214cf5df48a2a2e7dce116cfb6c1/ECS189%20Game%20Project/Assets/Scripts/ProjectileController.cs#L5).
+[HUDManager](https://github.com/isaboi/ECS189L_GameProject/blob/1ad1a81857f3214cf5df48a2a2e7dce116cfb6c1/ECS189%20Game%20Project/Assets/Scripts/HUDManager.cs#L6).
+[HealthManager](https://github.com/isaboi/ECS189L_GameProject/blob/1ad1a81857f3214cf5df48a2a2e7dce116cfb6c1/ECS189%20Game%20Project/Assets/Scripts/HealthManager.cs#L5).
+[GameManager](https://github.com/isaboi/ECS189L_GameProject/blob/1ad1a81857f3214cf5df48a2a2e7dce116cfb6c1/ECS189%20Game%20Project/Assets/Scripts/GameManager.cs#L7).
+
+
 
 ## Game Logic - (Leander)
 
@@ -193,4 +253,15 @@ The game was generally reviewed well. While a little challenging, the game feel 
 
 ## Game Feel - (Margaret)
 
-**Document what you added to and how you tweaked your game to improve its game feel.**
+We tweaked our game to improve its game feel to make our game relate to the narrative of the struggle of a student rushing to go to class in a minute. We set the scenery of the game to be Davis theme with the player, who is a student, moving on a road to school with trees in the background. The scenery is lively with multiple bikes moving back and forth and multiple squirrels jumping around. 
+  
+The bikes and squirrels are enemies that make it difficult for the player to reach its destination. When the player collides with bikes or squirrels, the player is knocked back in opposite direction.When the player is close to the school, the player encounters a giant squirrel and minotaur as final boss that attacks. The enemies damage and push the player back, making it a struggle to get to school.  The player is able to use notebooks as projectile to hit the squirrels and minotaur, but not the bikes. We make the squirrels have low hp, so that the player can easily hit and move past them. We make the minotaur have more hp, so that the player has a harder time killing the final boss that is right before the school.  
+  
+We aim to make the gameplay of the movement and shooting smooth. We use the animator to make smooth transitions between the different movements of idle, walk, run, and jump based on the velocity. We incorporate Unity Physics2D gravity into our jump movement to make the jump take longer and fall faster to give a good weighty feel.
+  
+We incorporated sound effects to when the player inputs a walk and jump command. There is sound effect to indicate that a collision occurs between player and enemy, boss perform an attack at the player, and a projectile was fired.
+
+We included these game visual and purpose to help the people relate to the game and picture themselves in this situation.   
+
+ 
+
